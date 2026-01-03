@@ -39,7 +39,33 @@
 
 /* ==========================================================================
    WordPress Core Blocks
-   (Wird später in Phase 4 erweitert)
    ========================================================================== */
 
-/* Placeholder für Custom Block Styles */
+/* Custom Block Style: Shadow (für Group Block) */
+.wp-block-group.is-style-shadow {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+/* Custom Block Style: Rounded (für Image Block) */
+.wp-block-image.is-style-rounded img {
+    border-radius: 12px;
+}
+
+/* Cover Block */
+.wp-block-cover {
+    min-height: 400px;
+}
+
+/* Buttons */
+.wp-block-button__link {
+    border-radius: 4px;
+    padding: 0.75rem 1.5rem;
+}
+
+/* Columns responsive */
+@media (max-width: 768px) {
+    .wp-block-columns {
+        flex-direction: column;
+    }
+}

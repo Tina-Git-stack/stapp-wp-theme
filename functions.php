@@ -24,5 +24,5 @@ require_once get_template_directory() . '/inc/helpers.php';
 // Template Tags
 require_once get_template_directory() . '/inc/template-tags.php';
 
-// Optional: Block Customization (später in Phase 4)
-// require_once get_template_directory() . '/inc/blocks.php';
+// Block Customization
+require_once get_template_directory() . '/inc/blocks.php';
