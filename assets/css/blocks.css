@@ -1,0 +1,45 @@
+/**
+ * Block Styles
+ * WordPress Core Block Alignment & Block-spezifische Styles
+ * (Shared: Editor UND Frontend)
+ *
+ * @package Stapp_Theme
+ */
+
+/* ==========================================================================
+   WordPress Core Alignment Classes
+   ========================================================================== */
+
+.alignleft {
+    float: left;
+    margin-right: var(--spacing-unit);
+}
+
+.alignright {
+    float: right;
+    margin-left: var(--spacing-unit);
+}
+
+.aligncenter {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignwide {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignfull {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* ==========================================================================
+   WordPress Core Blocks
+   (Wird später in Phase 4 erweitert)
+   ========================================================================== */
+
+/* Placeholder für Custom Block Styles */
