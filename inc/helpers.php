@@ -1,9 +1,29 @@
 <?php
 /**
- * Custom functions for this theme
+ * Helper Functions
  *
  * @package Stapp_Theme
  */
+
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+/**
+ * Custom Excerpt Length
+ */
+function stapp_theme_excerpt_length($length) {
+    return 30;
+}
+add_filter('excerpt_length', 'stapp_theme_excerpt_length');
+
+/**
+ * Custom Excerpt More
+ */
+function stapp_theme_excerpt_more($more) {
+    return '...';
+}
+add_filter('excerpt_more', 'stapp_theme_excerpt_more');
 
 /**
  * Add custom body classes
@@ -43,26 +63,6 @@ function stapp_theme_read_more_link() {
     return '... <a class="read-more" href="' . get_permalink() . '">' . __('Weiterlesen', 'stapp-theme') . '</a>';
 }
 add_filter('the_content_more_link', 'stapp_theme_read_more_link');
-
-/**
- * Add custom image sizes
- */
-function stapp_theme_custom_image_sizes() {
-    add_image_size('stapp-featured', 800, 450, true);
-    add_image_size('stapp-thumbnail', 400, 300, true);
-}
-add_action('after_setup_theme', 'stapp_theme_custom_image_sizes');
-
-/**
- * Add custom image size names
- */
-function stapp_theme_custom_image_size_names($sizes) {
-    return array_merge($sizes, array(
-        'stapp-featured'  => __('Featured (800x450)', 'stapp-theme'),
-        'stapp-thumbnail' => __('Thumbnail (400x300)', 'stapp-theme'),
-    ));
-}
-add_filter('image_size_names_choose', 'stapp_theme_custom_image_size_names');
 
 /**
  * Pagination
