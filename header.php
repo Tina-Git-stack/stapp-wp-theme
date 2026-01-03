@@ -22,37 +22,7 @@
 
     <header id="masthead" class="site-header">
         <div class="container">
-            <div class="site-branding">
-                <?php
-                if (has_custom_logo()) :
-                    the_custom_logo();
-                else :
-                    ?>
-                    <h1 class="site-title">
-                        <a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-                            <?php bloginfo('name'); ?>
-                        </a>
-                    </h1>
-                    <?php
-                    $description = get_bloginfo('description', 'display');
-                    if ($description || is_customize_preview()) :
-                        ?>
-                        <p class="site-description"><?php echo $description; ?></p>
-                    <?php endif; ?>
-                <?php endif; ?>
-            </div>
-
-            <nav id="site-navigation" class="main-navigation">
-                <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-                    <?php esc_html_e('Menü', 'stapp-theme'); ?>
-                </button>
-                <?php
-                wp_nav_menu(array(
-                    'theme_location' => 'primary',
-                    'menu_id'        => 'primary-menu',
-                    'container'      => false,
-                ));
-                ?>
-            </nav>
+            <?php get_template_part('template-parts/header/site-branding'); ?>
+            <?php get_template_part('template-parts/header/site-navigation'); ?>
         </div>
     </header>

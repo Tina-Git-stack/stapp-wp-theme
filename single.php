@@ -14,7 +14,7 @@ get_header();
         while (have_posts()) :
             the_post();
 
-            get_template_part('template-parts/content', 'single');
+            get_template_part('template-parts/content/content', 'single');
 
             the_post_navigation(array(
                 'prev_text' => '<span class="nav-subtitle">' . esc_html__('Vorheriger Beitrag:', 'stapp-theme') . '</span> <span class="nav-title">%title</span>',
