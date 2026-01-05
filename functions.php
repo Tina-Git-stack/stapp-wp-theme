@@ -26,3 +26,6 @@ require_once get_template_directory() . '/inc/template-tags.php';
 
 // Block Customization
 require_once get_template_directory() . '/inc/blocks.php';
+
+// Customizer
+require_once get_template_directory() . '/inc/customizer.php';

@@ -185,3 +185,13 @@
 .home .entry-header .entry-title {
     display: none;
 }
+
+/* ==========================================================================
+   Content Spacing after Hero
+   ========================================================================== */
+
+.hero-section + * {
+    background-color: var(--color-background);
+    position: relative;
+    z-index: 1;
+}
