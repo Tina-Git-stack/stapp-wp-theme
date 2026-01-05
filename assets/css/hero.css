@@ -12,16 +12,14 @@
 .is-style-hero-section,
 .hero-section {
     position: relative;
-    min-height: 100vh;
+    min-height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     background: #1a1a1a;
-    padding: 6rem 0;
+    padding: 4rem 0;
     width: 100vw;
-    margin-left: 50%;
-    transform: translateX(-50%);
     left: 0;
     right: 0;
 }
