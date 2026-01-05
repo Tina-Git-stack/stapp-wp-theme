@@ -61,7 +61,7 @@
      * Hero Parallax Effect
      */
     function initHeroParallax() {
-        const hero = $('.hero-section');
+        const hero = $('.hero-section, .is-style-hero-section');
 
         if (hero.length === 0) return;
 

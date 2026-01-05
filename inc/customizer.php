@@ -28,7 +28,8 @@ function stapp_theme_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control('stapp_logo_width', array(
-        'label'       => __('Logo Breite (px)', 'stapp-theme'),
+        'label'       => __('Logo Breite', 'stapp-theme'),
+        'description' => sprintf(__('Aktuell: %spx', 'stapp-theme'), get_theme_mod('stapp_logo_width', 150)),
         'section'     => 'stapp_logo_settings',
         'type'        => 'range',
         'input_attrs' => array(
@@ -46,8 +47,8 @@ function stapp_theme_customize_register($wp_customize) {
     ));
 
     $wp_customize->add_control('stapp_logo_height', array(
-        'label'       => __('Logo Höhe (px)', 'stapp-theme'),
-        'description' => __('0 = automatisch', 'stapp-theme'),
+        'label'       => __('Logo Höhe', 'stapp-theme'),
+        'description' => sprintf(__('Aktuell: %spx (0 = automatisch)', 'stapp-theme'), get_theme_mod('stapp_logo_height', 0)),
         'section'     => 'stapp_logo_settings',
         'type'        => 'range',
         'input_attrs' => array(

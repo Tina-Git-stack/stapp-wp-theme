@@ -9,6 +9,7 @@
    Hero Section Base
    ========================================================================== */
 
+.is-style-hero-section,
 .hero-section {
     position: relative;
     min-height: 100vh;
@@ -18,9 +19,12 @@
     overflow: hidden;
     background: #1a1a1a;
     padding: 6rem 0;
+    z-index: 1;
 }
 
 /* Atmospheric Blur Background */
+.is-style-hero-section::before,
+.is-style-hero-section::after,
 .hero-section::before,
 .hero-section::after {
     content: "";
@@ -32,6 +36,7 @@
     z-index: 1;
 }
 
+.is-style-hero-section::before,
 .hero-section::before {
     width: 600px;
     height: 600px;
@@ -41,6 +46,7 @@
     animation: float-slow 20s ease-in-out infinite;
 }
 
+.is-style-hero-section::after,
 .hero-section::after {
     width: 500px;
     height: 500px;
@@ -60,6 +66,7 @@
 }
 
 /* Glass Layer Container */
+.is-style-hero-section .wp-block-group__inner-container,
 .hero-section .wp-block-group__inner-container {
     position: relative;
     z-index: 2;
@@ -116,17 +123,21 @@
    Parallax Effect
    ========================================================================== */
 
+.is-style-hero-section[data-parallax],
 .hero-section[data-parallax] {
     will-change: transform;
 }
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
+    .is-style-hero-section::before,
+    .is-style-hero-section::after,
     .hero-section::before,
     .hero-section::after {
         animation: none;
     }
 
+    .is-style-hero-section[data-parallax],
     .hero-section[data-parallax] {
         transform: none !important;
     }
@@ -137,16 +148,19 @@
    ========================================================================== */
 
 @media screen and (max-width: 768px) {
+    .is-style-hero-section,
     .hero-section {
         min-height: 90vh;
         padding: 4rem 0;
     }
 
+    .is-style-hero-section .wp-block-group__inner-container,
     .hero-section .wp-block-group__inner-container {
         padding: 3rem 2rem;
         border-radius: 20px;
     }
 
+    .is-style-hero-section::before,
     .hero-section::before {
         width: 400px;
         height: 400px;
@@ -154,6 +168,7 @@
         right: -150px;
     }
 
+    .is-style-hero-section::after,
     .hero-section::after {
         width: 350px;
         height: 350px;
@@ -163,6 +178,7 @@
 }
 
 @media screen and (max-width: 480px) {
+    .is-style-hero-section .wp-block-group__inner-container,
     .hero-section .wp-block-group__inner-container {
         padding: 2.5rem 1.5rem;
         border-radius: 16px;
@@ -190,8 +206,9 @@
    Content Spacing after Hero
    ========================================================================== */
 
+.is-style-hero-section + *,
 .hero-section + * {
     background-color: var(--color-background);
     position: relative;
-    z-index: 1;
+    z-index: 10;
 }
