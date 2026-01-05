@@ -26,9 +26,23 @@
    ========================================================================== */
 
 .site-header {
-    background-color: var(--color-background);
-    border-bottom: 1px solid #e5e5e5;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: transparent;
+    border-bottom: 1px solid transparent;
     padding: 1.5rem 0;
+    transition: all 0.3s ease;
+}
+
+.site-header.scrolled {
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
 }
 
 .site-branding {
@@ -43,8 +57,13 @@
 }
 
 .site-title a {
-    color: var(--color-secondary);
+    color: #ffffff;
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.site-title a:hover {
+    color: var(--color-primary);
 }
 
 .site-description {
@@ -67,14 +86,17 @@
 }
 
 .main-navigation a {
-    color: var(--color-text);
+    color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
-    padding: 0.5rem 0;
+    padding: 0.5rem 1rem;
     display: block;
+    transition: color 0.3s ease;
+    border-radius: 6px;
 }
 
 .main-navigation a:hover {
-    color: var(--color-primary);
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .menu-toggle {
@@ -128,7 +150,7 @@
    ========================================================================== */
 
 .site-main {
-    padding: 3rem 0;
+    padding: 0;
 }
 
 /* ==========================================================================

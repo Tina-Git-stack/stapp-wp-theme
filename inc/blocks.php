@@ -24,6 +24,12 @@ function stapp_theme_register_block_styles() {
         'name'  => 'shadow',
         'label' => __('Mit Schatten', 'stapp-theme'),
     ));
+
+    // Custom Block Style: Hero Section (für Group Block)
+    register_block_style('core/group', array(
+        'name'  => 'hero-section',
+        'label' => __('Hero Section', 'stapp-theme'),
+    ));
 }
 add_action('init', 'stapp_theme_register_block_styles');
 

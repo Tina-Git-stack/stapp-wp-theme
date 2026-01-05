@@ -36,7 +36,8 @@ function stapp_theme_setup() {
         'assets/css/base.css',
         'assets/css/layout.css',
         'assets/css/components.css',
-        'assets/css/blocks.css'
+        'assets/css/blocks.css',
+        'assets/css/hero.css'
     ));
 
     // Custom Logo

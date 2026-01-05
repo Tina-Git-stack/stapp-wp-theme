@@ -25,8 +25,11 @@ function stapp_theme_scripts() {
     // 4. Blocks (Editor-Integration)
     wp_enqueue_style('stapp-blocks', get_template_directory_uri() . '/assets/css/blocks.css', array('stapp-components'), '1.0.0');
 
-    // 5. Theme-Stylesheet (für WordPress-Erkennung)
-    wp_enqueue_style('stapp-theme-style', get_stylesheet_uri(), array('stapp-blocks'), '1.0.0');
+    // 5. Hero Section
+    wp_enqueue_style('stapp-hero', get_template_directory_uri() . '/assets/css/hero.css', array('stapp-blocks'), '1.0.0');
+
+    // 6. Theme-Stylesheet (für WordPress-Erkennung)
+    wp_enqueue_style('stapp-theme-style', get_stylesheet_uri(), array('stapp-hero'), '1.0.0');
 
     // Main JavaScript
     wp_enqueue_script('stapp-theme-script', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '1.0.0', true);

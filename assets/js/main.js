@@ -58,12 +58,40 @@
     }
 
     /**
+     * Hero Parallax Effect
+     */
+    function initHeroParallax() {
+        const hero = $('.hero-section');
+
+        if (hero.length === 0) return;
+
+        // Check for reduced motion preference
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        if (prefersReducedMotion) return;
+
+        hero.attr('data-parallax', 'true');
+
+        $(window).on('scroll', function() {
+            const scrolled = $(this).scrollTop();
+            const heroHeight = hero.outerHeight();
+
+            // Only apply parallax while hero is visible
+            if (scrolled < heroHeight) {
+                const parallaxValue = scrolled * 0.5;
+                hero.css('transform', 'translateY(' + parallaxValue + 'px)');
+            }
+        });
+    }
+
+    /**
      * Initialize all functions
      */
     $(document).ready(function() {
         initMobileMenu();
         initSmoothScroll();
         initStickyHeader();
+        initHeroParallax();
 
         // Add console message
         console.log('Stapp Theme JavaScript loaded');
