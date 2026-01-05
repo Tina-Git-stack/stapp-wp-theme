@@ -91,7 +91,7 @@
         initMobileMenu();
         initSmoothScroll();
         initStickyHeader();
-        initHeroParallax();
+        // initHeroParallax(); // Temporarily disabled for debugging
 
         // Add console message
         console.log('Stapp Theme JavaScript loaded');
