@@ -162,15 +162,26 @@
 }
 
 /* Section Groups - transparent & centered */
-.ueber-uns,
 .wp-block-group {
     background: transparent !important;
 }
 
+.wp-block-group__inner-container {
+    background: transparent !important;
+}
+
 .ueber-uns {
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 4rem var(--spacing-unit) !important;
+    background: transparent !important;
+}
+
+.ueber-uns .wp-block-group__inner-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 4rem var(--spacing-unit);
+    padding: 0 var(--spacing-unit);
 }
 
 /* Adjust for fixed header and footer positioning */
