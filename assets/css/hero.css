@@ -16,55 +16,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden;
-    background: #1a1a1a;
     padding: 4rem 0;
     width: 100vw;
     left: 0;
     right: 0;
-}
-
-/* Atmospheric Blur Background */
-.is-style-hero-section::before,
-.is-style-hero-section::after,
-.hero-section::before,
-.hero-section::after {
-    content: "";
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-    opacity: 0.3;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.is-style-hero-section::before,
-.hero-section::before {
-    width: 600px;
-    height: 600px;
-    background: radial-gradient(circle, var(--color-primary, #007aff) 0%, transparent 70%);
-    top: -200px;
-    right: -100px;
-    animation: float-slow 20s ease-in-out infinite;
-}
-
-.is-style-hero-section::after,
-.hero-section::after {
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle, #4a90e2 0%, transparent 70%);
-    bottom: -150px;
-    left: -100px;
-    animation: float-slow 25s ease-in-out infinite reverse;
-}
-
-@keyframes float-slow {
-    0%, 100% {
-        transform: translate(0, 0);
-    }
-    50% {
-        transform: translate(30px, -30px);
-    }
 }
 
 /* Glass Layer Container */
@@ -154,13 +109,6 @@
 
 /* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-    .is-style-hero-section::before,
-    .is-style-hero-section::after,
-    .hero-section::before,
-    .hero-section::after {
-        animation: none;
-    }
-
     .is-style-hero-section[data-parallax],
     .hero-section[data-parallax] {
         transform: none !important;
@@ -181,22 +129,6 @@
     .hero-glass-container {
         padding: 3rem 2rem;
         border-radius: 20px;
-    }
-
-    .is-style-hero-section::before,
-    .hero-section::before {
-        width: 400px;
-        height: 400px;
-        top: -100px;
-        right: -150px;
-    }
-
-    .is-style-hero-section::after,
-    .hero-section::after {
-        width: 350px;
-        height: 350px;
-        bottom: -100px;
-        left: -150px;
     }
 }
 

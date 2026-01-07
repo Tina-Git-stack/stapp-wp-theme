@@ -34,9 +34,64 @@ body {
     font-size: var(--font-size-base);
     line-height: var(--line-height-base);
     color: var(--color-text);
-    background-color: var(--color-background);
+    background-color: #1a1a1a;
     margin: 0;
     padding: 0;
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* Atmospheric Blur Background (global) */
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+}
+
+body::before {
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, var(--color-primary, #007aff) 0%, transparent 70%);
+    top: 10%;
+    right: 5%;
+    animation: float-slow 20s ease-in-out infinite;
+}
+
+body::after {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #4a90e2 0%, transparent 70%);
+    bottom: 20%;
+    left: 5%;
+    animation: float-slow 25s ease-in-out infinite reverse;
+}
+
+@keyframes float-slow {
+    0%, 100% {
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(30px, -30px);
+    }
+}
+
+/* Ensure all content is above blur background */
+#page {
+    position: relative;
+    z-index: 1;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    body::before,
+    body::after {
+        animation: none;
+    }
 }
 
 a {
