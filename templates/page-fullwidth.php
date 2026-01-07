@@ -10,10 +10,7 @@ get_header();
 ?>
 
 <main id="primary" class="site-main fullwidth">
- <div style="background:#000; padding:40px">
-  <?php include get_stylesheet_directory() . '/assets/quality-line.svg'; ?>
-</div>    
-<div class="container-wide">
+    <div class="container-wide">
         <?php
         while (have_posts()) :
             the_post();
