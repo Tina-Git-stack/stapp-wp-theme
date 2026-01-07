@@ -1,4 +1,4 @@
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
   const line = document.querySelector('.bg-quality-line svg');
   if (!line) return;
 
@@ -13,4 +13,4 @@
   }
 
   animate();
-})();
+});
