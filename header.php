@@ -18,7 +18,12 @@
 <?php wp_body_open(); ?>
 
 <div class="bg-quality-line">
-    <?php include get_template_directory() . '/assets/svg/quality-line.svg'; ?>
+    <?php
+    $svg_file = get_template_directory() . '/assets/svg/quality-line.svg';
+    if (file_exists($svg_file)) {
+        echo file_get_contents($svg_file);
+    }
+    ?>
 </div>
 
 <div id="page" class="site">
