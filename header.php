@@ -17,6 +17,10 @@
 <body <?php body_class(); ?>>
 <?php wp_body_open(); ?>
 
+<div class="bg-quality-line">
+    <?php include get_template_directory() . '/assets/svg/quality-line.svg'; ?>
+</div>
+
 <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Zum Inhalt springen', 'stapp-theme'); ?></a>
 

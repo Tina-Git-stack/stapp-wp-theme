@@ -34,6 +34,9 @@ function stapp_theme_scripts() {
     // Main JavaScript
     wp_enqueue_script('stapp-theme-script', get_template_directory_uri() . '/assets/js/main.js', array('jquery'), '1.0.0', true);
 
+    // Quality Line Animation
+    wp_enqueue_script('stapp-quality-line', get_template_directory_uri() . '/assets/js/quality-line.js', array(), '1.0.0', true);
+
     // Comment Reply Script
     if (is_singular() && comments_open() && get_option('thread_comments')) {
         wp_enqueue_script('comment-reply');

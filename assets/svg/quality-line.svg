@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="420"
+  height="2200"
+  viewBox="0 0 420 2200"
+  preserveAspectRatio="xMidYMid meet"
+>
+  <defs>
+    <linearGradient id="qualityGradient" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6EE7E0"/>
+      <stop offset="35%" stop-color="#4FA3E3"/>
+      <stop offset="70%" stop-color="#5B8CFF"/>
+      <stop offset="100%" stop-color="#6EE7E0"/>
+    </linearGradient>
+
+    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="2.2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <path
+    d="
+      M210 0
+      C40 180, 380 420, 210 620
+      C20 820, 400 980, 210 1200
+      C70 1380, 350 1620, 210 1820
+      C140 1980, 280 2100, 210 2200
+    "
+    fill="none"
+    stroke="url(#qualityGradient)"
+    stroke-width="4.2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.65"
+    filter="url(#softGlow)"
+  />
+</svg>
