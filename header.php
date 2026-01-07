@@ -19,9 +19,13 @@
 
 <div class="bg-quality-line">
     <?php
-    $svg_file = get_template_directory() . '/assets/svg/quality-line.svg';
+    $svg_file = get_template_directory() . '/assets/quality-line.svg';
     if (file_exists($svg_file)) {
-        echo file_get_contents($svg_file);
+        // Suppress any potential warnings and output the SVG
+        $svg_content = @file_get_contents($svg_file);
+        if ($svg_content !== false) {
+            echo $svg_content;
+        }
     }
     ?>
 </div>
