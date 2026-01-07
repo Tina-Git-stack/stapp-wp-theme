@@ -112,7 +112,9 @@
    ========================================================================== */
 
 .site-footer {
-    background-color: var(--color-dark, #0f0f0f);
+    background: rgba(15, 15, 15, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     color: white;
     padding: 3rem 0 1.5rem;
     margin-top: 0;
@@ -157,6 +159,18 @@
 
 .site-main {
     padding: 0;
+}
+
+/* Section Groups - transparent & centered */
+.ueber-uns,
+.wp-block-group {
+    background: transparent !important;
+}
+
+.ueber-uns {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem var(--spacing-unit);
 }
 
 /* Adjust for fixed header and footer positioning */
