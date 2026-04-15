@@ -2,7 +2,7 @@
 /**
  * Template part for displaying footer info
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 ?>
 
@@ -14,7 +14,7 @@
         </a>
         <?php
         printf(
-            esc_html__('| Powered by %s', 'stapp-theme'),
+            esc_html__('| Powered by %s', 'stapp-wp-theme'),
             '<a href="https://wordpress.org/">WordPress</a>'
         );
         ?>

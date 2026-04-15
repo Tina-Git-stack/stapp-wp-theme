@@ -1,4 +1,4 @@
-# Stapp Theme
+# STApp WP Theme
 
 Ein modernes, responsives WordPress-Theme mit Block-Editor-Unterstützung.
 
@@ -24,7 +24,7 @@ Ein modernes, responsives WordPress-Theme mit Block-Editor-Unterstützung.
 ## Theme-Struktur
 
 ```
-stapp-theme/
+stapp_wp_theme/
 ├── assets/
 │   ├── css/
 │   │   ├── main.css          # Haupt-Stylesheet

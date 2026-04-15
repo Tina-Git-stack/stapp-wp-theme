@@ -2,7 +2,7 @@
 /**
  * The footer template
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 ?>
 

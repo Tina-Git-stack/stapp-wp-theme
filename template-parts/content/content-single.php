@@ -2,7 +2,7 @@
 /**
  * Template part for displaying single posts
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 ?>
 
@@ -15,7 +15,7 @@
                 <?php echo get_the_date(); ?>
             </span>
             <span class="byline">
-                <?php esc_html_e('von', 'stapp-theme'); ?>
+                <?php esc_html_e('von', 'stapp-wp-theme'); ?>
                 <span class="author vcard">
                     <a class="url fn n" href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
                         <?php echo esc_html(get_the_author()); ?>
@@ -36,7 +36,7 @@
         the_content();
 
         wp_link_pages(array(
-            'before' => '<div class="page-links">' . esc_html__('Seiten:', 'stapp-theme'),
+            'before' => '<div class="page-links">' . esc_html__('Seiten:', 'stapp-wp-theme'),
             'after'  => '</div>',
         ));
         ?>
@@ -44,14 +44,14 @@
 
     <footer class="entry-footer">
         <?php
-        $categories_list = get_the_category_list(esc_html__(', ', 'stapp-theme'));
+        $categories_list = get_the_category_list(esc_html__(', ', 'stapp-wp-theme'));
         if ($categories_list) {
-            printf('<span class="cat-links">' . esc_html__('Kategorien: %1$s', 'stapp-theme') . '</span>', $categories_list);
+            printf('<span class="cat-links">' . esc_html__('Kategorien: %1$s', 'stapp-wp-theme') . '</span>', $categories_list);
         }
 
-        $tags_list = get_the_tag_list('', esc_html_x(', ', 'list item separator', 'stapp-theme'));
+        $tags_list = get_the_tag_list('', esc_html_x(', ', 'list item separator', 'stapp-wp-theme'));
         if ($tags_list) {
-            printf('<span class="tags-links">' . esc_html__('Tags: %1$s', 'stapp-theme') . '</span>', $tags_list);
+            printf('<span class="tags-links">' . esc_html__('Tags: %1$s', 'stapp-wp-theme') . '</span>', $tags_list);
         }
         ?>
     </footer>

@@ -2,14 +2,14 @@
 /**
  * Custom template tags for this theme
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 
-if (!function_exists('stapp_theme_posted_on')) :
+if (!function_exists('stapp_wp_theme_posted_on')) :
     /**
      * Prints HTML with meta information for the current post-date/time.
      */
-    function stapp_theme_posted_on() {
+    function stapp_wp_theme_posted_on() {
         $time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
         if (get_the_time('U') !== get_the_modified_time('U')) {
             $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -24,7 +24,7 @@ if (!function_exists('stapp_theme_posted_on')) :
         );
 
         $posted_on = sprintf(
-            esc_html_x('Veröffentlicht am %s', 'post date', 'stapp-theme'),
+            esc_html_x('Veröffentlicht am %s', 'post date', 'stapp-wp-theme'),
             '<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
         );
 
@@ -32,13 +32,13 @@ if (!function_exists('stapp_theme_posted_on')) :
     }
 endif;
 
-if (!function_exists('stapp_theme_posted_by')) :
+if (!function_exists('stapp_wp_theme_posted_by')) :
     /**
      * Prints HTML with meta information for the current author.
      */
-    function stapp_theme_posted_by() {
+    function stapp_wp_theme_posted_by() {
         $byline = sprintf(
-            esc_html_x('von %s', 'post author', 'stapp-theme'),
+            esc_html_x('von %s', 'post author', 'stapp-wp-theme'),
             '<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
         );
 
@@ -46,20 +46,20 @@ if (!function_exists('stapp_theme_posted_by')) :
     }
 endif;
 
-if (!function_exists('stapp_theme_entry_footer')) :
+if (!function_exists('stapp_wp_theme_entry_footer')) :
     /**
      * Prints HTML with meta information for the categories, tags and comments.
      */
-    function stapp_theme_entry_footer() {
+    function stapp_wp_theme_entry_footer() {
         if ('post' === get_post_type()) {
-            $categories_list = get_the_category_list(esc_html__(', ', 'stapp-theme'));
+            $categories_list = get_the_category_list(esc_html__(', ', 'stapp-wp-theme'));
             if ($categories_list) {
-                printf('<span class="cat-links">' . esc_html__('Kategorien: %1$s', 'stapp-theme') . '</span>', $categories_list);
+                printf('<span class="cat-links">' . esc_html__('Kategorien: %1$s', 'stapp-wp-theme') . '</span>', $categories_list);
             }
 
-            $tags_list = get_the_tag_list('', esc_html_x(', ', 'list item separator', 'stapp-theme'));
+            $tags_list = get_the_tag_list('', esc_html_x(', ', 'list item separator', 'stapp-wp-theme'));
             if ($tags_list) {
-                printf('<span class="tags-links">' . esc_html__('Tags: %1$s', 'stapp-theme') . '</span>', $tags_list);
+                printf('<span class="tags-links">' . esc_html__('Tags: %1$s', 'stapp-wp-theme') . '</span>', $tags_list);
             }
         }
 
@@ -68,7 +68,7 @@ if (!function_exists('stapp_theme_entry_footer')) :
             comments_popup_link(
                 sprintf(
                     wp_kses(
-                        __('Hinterlasse einen Kommentar<span class="screen-reader-text"> zu %s</span>', 'stapp-theme'),
+                        __('Hinterlasse einen Kommentar<span class="screen-reader-text"> zu %s</span>', 'stapp-wp-theme'),
                         array(
                             'span' => array(
                                 'class' => array(),
@@ -83,11 +83,11 @@ if (!function_exists('stapp_theme_entry_footer')) :
     }
 endif;
 
-if (!function_exists('stapp_theme_post_thumbnail')) :
+if (!function_exists('stapp_wp_theme_post_thumbnail')) :
     /**
      * Displays an optional post thumbnail.
      */
-    function stapp_theme_post_thumbnail() {
+    function stapp_wp_theme_post_thumbnail() {
         if (post_password_required() || is_attachment() || !has_post_thumbnail()) {
             return;
         }

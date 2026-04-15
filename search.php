@@ -2,7 +2,7 @@
 /**
  * The template for displaying search results
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 
 get_header();
@@ -16,7 +16,7 @@ get_header();
                 <h1 class="page-title">
                     <?php
                     printf(
-                        esc_html__('Suchergebnisse für: %s', 'stapp-theme'),
+                        esc_html__('Suchergebnisse für: %s', 'stapp-wp-theme'),
                         '<span>' . get_search_query() . '</span>'
                     );
                     ?>

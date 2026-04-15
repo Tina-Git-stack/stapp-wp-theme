@@ -1,8 +1,8 @@
 <?php
 /**
- * Stapp Theme Functions
+ * STApp WP Theme Functions
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 
 if (!defined('ABSPATH')) {

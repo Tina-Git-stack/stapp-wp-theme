@@ -2,7 +2,7 @@
  * Layout Styles
  * Grid, Container, Header, Footer, Sidebar, Responsive
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 
 /* ==========================================================================
@@ -161,27 +161,27 @@
     padding: 0;
 }
 
-/* Section Groups - transparent & centered */
-.wp-block-group {
+/* Section Groups - transparent & centered by default */
+.wp-block-group:not(.glass-container):not(.is-style-hero-section):not(.hero-section) {
     background: transparent !important;
+    background-color: transparent !important;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 4rem var(--spacing-unit);
 }
 
 .wp-block-group__inner-container {
     background: transparent !important;
+    background-color: transparent !important;
 }
 
-.ueber-uns {
-    max-width: 1200px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    padding: 4rem var(--spacing-unit) !important;
+/* Ensure main content area has no background override */
+.site-main,
+.site-content,
+#primary {
     background: transparent !important;
-}
-
-.ueber-uns .wp-block-group__inner-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-unit);
+    background-color: transparent !important;
 }
 
 /* Adjust for fixed header and footer positioning */
@@ -207,8 +207,8 @@ body {
 .bg-quality-line {
   position: fixed;
   top: 0;
-  left: 6%;
-  width: 420px;
+  left: 0;
+  width: 100vw;
   height: 100vh;
   pointer-events: none;
   z-index: 0;
@@ -262,7 +262,7 @@ body {
     }
 
     #primary {
-        width: 70%;
+        width: 100%;
         float: left;
     }
 

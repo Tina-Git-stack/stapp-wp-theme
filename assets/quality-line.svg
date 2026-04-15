@@ -1,9 +1,9 @@
 <svg
   xmlns="http://www.w3.org/2000/svg"
-  width="420"
-  height="2200"
-  viewBox="0 0 420 2200"
-  preserveAspectRatio="xMidYMid meet"
+  width="100%"
+  height="100%"
+  viewBox="0 0 100 100"
+  preserveAspectRatio="none"
 >
   <defs>
     <linearGradient id="qualityGradient" x1="0" y1="0" x2="0" y2="1">
@@ -13,10 +13,12 @@
       <stop offset="100%" stop-color="#6EE7E0"/>
     </linearGradient>
 
-    <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="2.2" result="blur"/>
+    <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feGaussianBlur stdDeviation="4" result="blur2"/>
       <feMerge>
         <feMergeNode in="blur"/>
+        <feMergeNode in="blur2"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
@@ -24,18 +26,18 @@
 
   <path
     d="
-      M210 0
-      C40 180, 380 420, 210 620
-      C20 820, 400 980, 210 1200
-      C70 1380, 350 1620, 210 1820
-      C140 1980, 280 2100, 210 2200
+      M50 0
+      C25 12, 75 25, 50 35
+      C10 47, 90 60, 50 70
+      C25 82, 75 92, 50 100
     "
     fill="none"
     stroke="url(#qualityGradient)"
-    stroke-width="4.2"
+    stroke-width="0.5"
     stroke-linecap="round"
     stroke-linejoin="round"
-    opacity="0.65"
+    opacity="0.75"
     filter="url(#softGlow)"
+    vector-effect="non-scaling-stroke"
   />
 </svg>

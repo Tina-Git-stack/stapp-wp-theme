@@ -2,7 +2,7 @@
 /**
  * The template for displaying pages
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 
 get_header();

@@ -2,7 +2,7 @@
 /**
  * Theme Setup Functions
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 
 if (!defined('ABSPATH')) {
@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
 /**
  * Theme Setup
  */
-function stapp_theme_setup() {
+function stapp_wp_theme_setup() {
     // Theme-Unterstützung für verschiedene Features
     add_theme_support('title-tag');
     add_theme_support('post-thumbnails');
@@ -50,14 +50,14 @@ function stapp_theme_setup() {
 
     // Navigation Menus
     register_nav_menus(array(
-        'primary' => __('Primäres Menü', 'stapp-theme'),
-        'footer'  => __('Footer Menü', 'stapp-theme'),
+        'primary' => __('Primäres Menü', 'stapp-wp-theme'),
+        'footer'  => __('Footer Menü', 'stapp-wp-theme'),
     ));
 
     // Theme-Textdomain für Übersetzungen laden
-    load_theme_textdomain('stapp-theme', get_template_directory() . '/languages');
+    load_theme_textdomain('stapp-wp-theme', get_template_directory() . '/languages');
 }
-add_action('after_setup_theme', 'stapp_theme_setup');
+add_action('after_setup_theme', 'stapp_wp_theme_setup');
 
 /**
  * Content Width
@@ -72,19 +72,19 @@ if (!isset($content_width)) {
 /**
  * Add custom image sizes
  */
-function stapp_theme_custom_image_sizes() {
-    add_image_size('stapp-featured', 800, 450, true);
-    add_image_size('stapp-thumbnail', 400, 300, true);
+function stapp_wp_theme_custom_image_sizes() {
+    add_image_size('stapp-wp-featured', 800, 450, true);
+    add_image_size('stapp-wp-thumbnail', 400, 300, true);
 }
-add_action('after_setup_theme', 'stapp_theme_custom_image_sizes');
+add_action('after_setup_theme', 'stapp_wp_theme_custom_image_sizes');
 
 /**
  * Add custom image size names
  */
-function stapp_theme_custom_image_size_names($sizes) {
+function stapp_wp_theme_custom_image_size_names($sizes) {
     return array_merge($sizes, array(
-        'stapp-featured'  => __('Featured (800x450)', 'stapp-theme'),
-        'stapp-thumbnail' => __('Thumbnail (400x300)', 'stapp-theme'),
+        'stapp-wp-featured'  => __('Featured (800x450)', 'stapp-wp-theme'),
+        'stapp-wp-thumbnail' => __('Thumbnail (400x300)', 'stapp-wp-theme'),
     ));
 }
-add_filter('image_size_names_choose', 'stapp_theme_custom_image_size_names');
+add_filter('image_size_names_choose', 'stapp_wp_theme_custom_image_size_names');

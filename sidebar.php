@@ -2,7 +2,7 @@
 /**
  * The sidebar template
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 
 if (!is_active_sidebar('sidebar-1')) {

@@ -20,12 +20,12 @@ Es gibt **zwei Arten** von Gruppen/Sektionen:
 
 **Im WordPress Block Editor:**
 1. Gruppe erstellen
-2. Klasse hinzufügen (z.B. `ueber-uns`, `leistungen`, etc.)
-3. Fertig - automatisch transparent & zentriert
+2. **KEINE Klasse hinzufügen** - einfach Standard lassen
+3. Fertig - automatisch transparent & zentriert (max-width: 1200px)
 
-**CSS:**
+**CSS (automatisch angewendet):**
 ```css
-.ueber-uns {
+.wp-block-group {
     max-width: 1200px;
     margin: 0 auto;
     padding: 4rem var(--spacing-unit);
@@ -121,7 +121,7 @@ Zusätzliche CSS-Klasse(n): glass-container centered
 
 ### Einfache Sektion (transparent)
 ```
-Gruppe "ueber-uns"
+Gruppe (Standard, keine Klasse)
 ├── Überschrift H2
 ├── Absatz
 └── Absatz
@@ -149,7 +149,7 @@ Gruppe "is-style-hero-section"
 ## Zusammenfassung
 
 **Regel:**
-- **Kein Glass = keine Klasse** (oder eigene wie `ueber-uns`)
+- **Kein Glass = keine Klasse** (Standard WordPress Gruppe)
 - **Mit Glass = Klasse `glass-container`** (+ optional `centered` oder `wide`)
 
 Das war's! 🎨

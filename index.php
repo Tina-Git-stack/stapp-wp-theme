@@ -2,7 +2,7 @@
 /**
  * The main template file
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 
 get_header();

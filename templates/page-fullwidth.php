@@ -3,7 +3,7 @@
  * Template Name: Volle Breite
  * Template Post Type: page
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 
 get_header();

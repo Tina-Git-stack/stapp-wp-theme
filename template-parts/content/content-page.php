@@ -2,7 +2,7 @@
 /**
  * Template part for displaying page content
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 ?>
 
@@ -22,7 +22,7 @@
         the_content();
 
         wp_link_pages(array(
-            'before' => '<div class="page-links">' . esc_html__('Seiten:', 'stapp-theme'),
+            'before' => '<div class="page-links">' . esc_html__('Seiten:', 'stapp-wp-theme'),
             'after'  => '</div>',
         ));
         ?>

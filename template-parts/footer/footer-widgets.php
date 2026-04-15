@@ -2,7 +2,7 @@
 /**
  * Template part for displaying footer widgets
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 ?>
 

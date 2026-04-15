@@ -1,7 +1,7 @@
 /**
  * Main JavaScript File
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 
 (function($) {
@@ -94,7 +94,7 @@
         // initHeroParallax(); // Temporarily disabled for debugging
 
         // Add console message
-        console.log('Stapp Theme JavaScript loaded');
+        console.log('STApp WP Theme JavaScript loaded');
     });
 
 })(jQuery);

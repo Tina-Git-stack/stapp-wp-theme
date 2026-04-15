@@ -2,7 +2,7 @@
 /**
  * Template part for displaying results in search pages
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 ?>
 
@@ -16,7 +16,7 @@
                     <?php echo get_the_date(); ?>
                 </span>
                 <span class="byline">
-                    <?php esc_html_e('von', 'stapp-theme'); ?>
+                    <?php esc_html_e('von', 'stapp-wp-theme'); ?>
                     <span class="author vcard">
                         <a class="url fn n" href="<?php echo esc_url(get_author_posts_url(get_the_author_meta('ID'))); ?>">
                             <?php echo esc_html(get_the_author()); ?>
@@ -41,7 +41,7 @@
 
     <footer class="entry-footer">
         <a href="<?php the_permalink(); ?>" class="read-more">
-            <?php esc_html_e('Weiterlesen', 'stapp-theme'); ?>
+            <?php esc_html_e('Weiterlesen', 'stapp-wp-theme'); ?>
         </a>
     </footer>
 </article>

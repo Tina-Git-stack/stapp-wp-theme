@@ -2,7 +2,7 @@
 /**
  * The template for displaying comments
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 
 if (post_password_required()) {
@@ -18,7 +18,7 @@ if (post_password_required()) {
             $comment_count = get_comments_number();
             if ('1' === $comment_count) {
                 printf(
-                    esc_html__('Ein Kommentar zu &ldquo;%1$s&rdquo;', 'stapp-theme'),
+                    esc_html__('Ein Kommentar zu &ldquo;%1$s&rdquo;', 'stapp-wp-theme'),
                     '<span>' . wp_kses_post(get_the_title()) . '</span>'
                 );
             } else {
@@ -28,7 +28,7 @@ if (post_password_required()) {
                         '%1$s Kommentare zu &ldquo;%2$s&rdquo;',
                         $comment_count,
                         'comments title',
-                        'stapp-theme'
+                        'stapp-wp-theme'
                     )),
                     number_format_i18n($comment_count),
                     '<span>' . wp_kses_post(get_the_title()) . '</span>'
@@ -52,7 +52,7 @@ if (post_password_required()) {
 
         if (!comments_open()) :
             ?>
-            <p class="no-comments"><?php esc_html_e('Die Kommentare sind geschlossen.', 'stapp-theme'); ?></p>
+            <p class="no-comments"><?php esc_html_e('Die Kommentare sind geschlossen.', 'stapp-wp-theme'); ?></p>
         <?php
         endif;
 

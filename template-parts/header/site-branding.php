@@ -2,7 +2,7 @@
 /**
  * Template part for displaying site branding
  *
- * @package Stapp_Theme
+ * @package STApp_WP_Theme
  */
 ?>
 
