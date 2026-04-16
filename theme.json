@@ -26,13 +26,13 @@
                 },
                 {
                     "slug": "accent-cyan",
-                    "color": "#5DD3E8",
+                    "color": "#00D2FF",
                     "name": "Akzent Cyan"
                 },
                 {
-                    "slug": "accent-green",
-                    "color": "#00D9A3",
-                    "name": "Akzent Grün"
+                    "slug": "accent-blue",
+                    "color": "#0080C8",
+                    "name": "Akzent Blau"
                 },
                 {
                     "slug": "dark",

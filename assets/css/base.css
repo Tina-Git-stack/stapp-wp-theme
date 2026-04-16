@@ -56,7 +56,7 @@ body::after {
 body::before {
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, var(--stapp-blur-color1, #007aff) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--stapp-blur-color1, #00D2FF) 0%, transparent 70%);
     top: 10%;
     right: 5%;
     animation: float-slow 20s ease-in-out infinite;
@@ -65,7 +65,7 @@ body::before {
 body::after {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, var(--stapp-blur-color2, #4a90e2) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--stapp-blur-color2, #0080C8) 0%, transparent 70%);
     bottom: 20%;
     left: 5%;
     animation: float-slow 25s ease-in-out infinite reverse;

@@ -2,42 +2,106 @@
   xmlns="http://www.w3.org/2000/svg"
   width="100%"
   height="100%"
-  viewBox="0 0 100 100"
+  viewBox="0 0 100 300"
   preserveAspectRatio="none"
 >
   <defs>
+    <!-- 3 Zyklen: Cyan → Blau → Cyan → Blau → Cyan → Blau -->
     <linearGradient id="qualityGradient" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#6EE7E0"/>
-      <stop offset="35%" stop-color="#4FA3E3"/>
-      <stop offset="70%" stop-color="#5B8CFF"/>
-      <stop offset="100%" stop-color="#6EE7E0"/>
+      <stop offset="0%"   stop-color="#00D2FF"/>
+      <stop offset="12%"  stop-color="#0080C8"/>
+      <stop offset="22%"  stop-color="#005FA3"/>
+      <stop offset="33%"  stop-color="#00D2FF"/>
+      <stop offset="45%"  stop-color="#0080C8"/>
+      <stop offset="55%"  stop-color="#005FA3"/>
+      <stop offset="66%"  stop-color="#00D2FF"/>
+      <stop offset="78%"  stop-color="#0080C8"/>
+      <stop offset="88%"  stop-color="#005FA3"/>
+      <stop offset="100%" stop-color="#00D2FF"/>
     </linearGradient>
 
-    <filter id="softGlow" x="-100%" y="-100%" width="300%" height="300%">
-      <feGaussianBlur stdDeviation="8" result="blur"/>
-      <feGaussianBlur stdDeviation="4" result="blur2"/>
+    <!-- Starker Glow-Filter für Schimmer-Effekt -->
+    <filter id="glowStrong" x="-200%" y="-10%" width="500%" height="120%">
+      <feGaussianBlur stdDeviation="3" result="blur1"/>
+      <feGaussianBlur stdDeviation="8" result="blur2"/>
+      <feGaussianBlur stdDeviation="16" result="blur3"/>
+      <feMerge>
+        <feMergeNode in="blur3"/>
+        <feMergeNode in="blur2"/>
+        <feMergeNode in="blur1"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Weicher äußerer Glow für den breiten Schein -->
+    <filter id="glowOuter" x="-300%" y="-10%" width="700%" height="120%">
+      <feGaussianBlur stdDeviation="25" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
-        <feMergeNode in="blur2"/>
-        <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
   </defs>
 
+  <!-- Äußerer Glow-Layer (breiter, weicher Schein) -->
   <path
     d="
-      M50 0
-      C25 12, 75 25, 50 35
-      C10 47, 90 60, 50 70
-      C25 82, 75 92, 50 100
+      M50 -20
+      C20 10, 80 30, 50 50
+      C15 72, 85 90, 50 110
+      C20 132, 80 150, 50 170
+      C15 192, 85 210, 50 230
+      C20 252, 80 270, 50 290
+      C15 310, 85 325, 50 340
     "
     fill="none"
     stroke="url(#qualityGradient)"
-    stroke-width="0.5"
+    stroke-width="5"
     stroke-linecap="round"
     stroke-linejoin="round"
-    opacity="0.75"
-    filter="url(#softGlow)"
+    opacity="0.15"
+    filter="url(#glowOuter)"
+    vector-effect="non-scaling-stroke"
+  />
+
+  <!-- Mittlerer Glow-Layer -->
+  <path
+    d="
+      M50 -20
+      C20 10, 80 30, 50 50
+      C15 72, 85 90, 50 110
+      C20 132, 80 150, 50 170
+      C15 192, 85 210, 50 230
+      C20 252, 80 270, 50 290
+      C15 310, 85 325, 50 340
+    "
+    fill="none"
+    stroke="url(#qualityGradient)"
+    stroke-width="3"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.4"
+    filter="url(#glowStrong)"
+    vector-effect="non-scaling-stroke"
+  />
+
+  <!-- Scharfe Hauptlinie -->
+  <path
+    d="
+      M50 -20
+      C20 10, 80 30, 50 50
+      C15 72, 85 90, 50 110
+      C20 132, 80 150, 50 170
+      C15 192, 85 210, 50 230
+      C20 252, 80 270, 50 290
+      C15 310, 85 325, 50 340
+    "
+    fill="none"
+    stroke="url(#qualityGradient)"
+    stroke-width="1.5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    opacity="0.85"
+    filter="url(#glowStrong)"
     vector-effect="non-scaling-stroke"
   />
 </svg>

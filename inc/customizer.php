@@ -258,7 +258,7 @@ function stapp_wp_theme_customize_register($wp_customize) {
 
     // Blur Color 1
     $wp_customize->add_setting('stapp_wp_bg_blur_color1', array(
-        'default'           => '#007aff',
+        'default'           => '#00D2FF',
         'sanitize_callback' => 'sanitize_hex_color',
         'transport'         => 'postMessage',
     ));
@@ -270,7 +270,7 @@ function stapp_wp_theme_customize_register($wp_customize) {
 
     // Blur Color 2
     $wp_customize->add_setting('stapp_wp_bg_blur_color2', array(
-        'default'           => '#4a90e2',
+        'default'           => '#0080C8',
         'sanitize_callback' => 'sanitize_hex_color',
         'transport'         => 'postMessage',
     ));
@@ -301,7 +301,7 @@ function stapp_wp_theme_customize_register($wp_customize) {
 
     // Quality Line Color
     $wp_customize->add_setting('stapp_wp_bg_qualityline_color', array(
-        'default'           => '#007aff',
+        'default'           => '#00D2FF',
         'sanitize_callback' => 'sanitize_hex_color',
         'transport'         => 'postMessage',
     ));
@@ -350,10 +350,10 @@ function stapp_wp_theme_customizer_css() {
     $bg_gradient_color2 = get_theme_mod('stapp_wp_bg_gradient_color2', '#0f1a2a');
     $bg_base_color      = get_theme_mod('stapp_wp_bg_base_color', '#1a1a1a');
     $bg_blur_enabled    = get_theme_mod('stapp_wp_bg_blur_enabled', true);
-    $bg_blur_color1     = get_theme_mod('stapp_wp_bg_blur_color1', '#007aff');
-    $bg_blur_color2     = get_theme_mod('stapp_wp_bg_blur_color2', '#4a90e2');
+    $bg_blur_color1     = get_theme_mod('stapp_wp_bg_blur_color1', '#00D2FF');
+    $bg_blur_color2     = get_theme_mod('stapp_wp_bg_blur_color2', '#0080C8');
     $bg_blur_opacity    = get_theme_mod('stapp_wp_bg_blur_opacity', 30) / 100;
-    $ql_color           = get_theme_mod('stapp_wp_bg_qualityline_color', '#007aff');
+    $ql_color           = get_theme_mod('stapp_wp_bg_qualityline_color', '#00D2FF');
 
     ?>
     <style type="text/css" id="stapp-customizer-css">
