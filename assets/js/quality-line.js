@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', function () {
     return { r: Math.round(r), g: Math.round(g), b: Math.round(b) };
   }
 
-  var glowRadius = 40;
-  var coreRadius = 1.5;
+  var glowRadius = 80;
+  var coreRadius = 3;
 
   function resize() {
     var rect = container.getBoundingClientRect();
