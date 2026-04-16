@@ -18,34 +18,24 @@ document.addEventListener('DOMContentLoaded', function () {
   var ctx = canvas.getContext('2d');
   var dpr = window.devicePixelRatio || 1;
 
-  // 12 Segmente, jedes 60 Einheiten hoch = 720 total
+  // Sinuswelle: garantiert glatt, keine Knicke
   function getCurvePoints(w, h) {
     var points = [];
-    var total = 720;
-    var segHeight = 60;
-    var numSegs = 12;
+    var totalSteps = 800;
+    var waves = 5; // Anzahl voller Wellen über die gesamte Höhe
+    var amplitude = w * 0.25; // 25% der Breite nach links/rechts
+    var centerX = w * 0.5;
 
-    for (var s = 0; s < numSegs; s++) {
-      var yStart = (s * segHeight - 20) / total;
-      var yEnd = ((s + 1) * segHeight - 20) / total;
-      var yMid1 = yStart + (yEnd - yStart) * 0.35;
-      var yMid2 = yStart + (yEnd - yStart) * 0.65;
-      // Alternierend links/rechts
-      var cx1 = (s % 2 === 0) ? 0.20 : 0.80;
-      var cx2 = (s % 2 === 0) ? 0.80 : 0.20;
-
-      var steps = 60;
-      for (var i = 0; i <= steps; i++) {
-        var t = i / steps;
-        var u = 1 - t;
-        var x = u*u*u * 0.50 + 3*u*u*t * cx1 + 3*u*t*t * cx2 + t*t*t * 0.50;
-        var y = u*u*u * yStart + 3*u*u*t * yMid1 + 3*u*t*t * yMid2 + t*t*t * yEnd;
-        points.push({ x: x * w, y: y * h });
-      }
+    for (var i = 0; i <= totalSteps; i++) {
+      var t = i / totalSteps;
+      var y = t * h;
+      var x = centerX + Math.sin(t * waves * Math.PI * 2) * amplitude;
+      points.push({ x: x, y: y });
     }
     return points;
   }
 
+  // Farbverlauf: 4 Zyklen Türkis ↔ Blau
   function getColorAt(t) {
     var cycle = (t * 4) % 1;
     var r, g, b;
@@ -81,7 +71,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var points = getCurvePoints(w, h);
     var totalPoints = points.length;
 
-    for (var i = 0; i < totalPoints; i += 2) {
+    // Glow
+    for (var i = 0; i < totalPoints; i += 3) {
       var pt = points[i];
       var t = i / totalPoints;
       var col = getColorAt(t);
@@ -96,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
       ctx.fillRect(pt.x - glowRadius, pt.y - glowRadius, glowRadius * 2, glowRadius * 2);
     }
 
+    // Kern-Linie
     for (var i = 0; i < totalPoints - 1; i++) {
       var t = i / totalPoints;
       var col = getColorAt(t);
