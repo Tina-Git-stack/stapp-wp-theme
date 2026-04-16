@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
   canvas.style.top = '0';
   canvas.style.left = '0';
   canvas.style.width = '100%';
-  canvas.style.height = '600%';
+  canvas.style.height = '1000%';
   canvas.style.willChange = 'transform';
   container.appendChild(canvas);
 
@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function getCurvePoints(w, h) {
     var points = [];
     var totalSteps = 800;
-    var waves = 5; // Anzahl voller Wellen über die gesamte Höhe
+    var waves = 8; // Anzahl voller Wellen über die gesamte Höhe
     var amplitude = w * 0.25; // 25% der Breite nach links/rechts
     var centerX = w * 0.5;
 
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function resize() {
     var rect = container.getBoundingClientRect();
     canvas.width = rect.width * dpr;
-    canvas.height = rect.height * 6 * dpr;
+    canvas.height = rect.height * 10 * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var offset = 0;
   function animate() {
     offset += 0.015;
-    var translateY = -82 + Math.sin(offset) * 3;
+    var translateY = -89 + Math.sin(offset) * 1;
     var translateX = Math.sin(offset * 0.7) * 3;
     canvas.style.transform = 'translateY(' + translateY + '%) translateX(' + translateX + '%)';
     requestAnimationFrame(animate);
