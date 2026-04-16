@@ -7,18 +7,18 @@
 >
   <defs>
     <linearGradient id="qualityGradient" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%"   stop-color="#00D2FF"/>
-      <stop offset="8%"   stop-color="#00D2FF"/>
-      <stop offset="20%"  stop-color="#0060A0"/>
-      <stop offset="30%"  stop-color="#0060A0"/>
-      <stop offset="40%"  stop-color="#00D2FF"/>
-      <stop offset="48%"  stop-color="#00D2FF"/>
-      <stop offset="58%"  stop-color="#0060A0"/>
-      <stop offset="68%"  stop-color="#0060A0"/>
-      <stop offset="78%"  stop-color="#00D2FF"/>
-      <stop offset="86%"  stop-color="#00D2FF"/>
-      <stop offset="95%"  stop-color="#0060A0"/>
-      <stop offset="100%" stop-color="#0060A0"/>
+      <stop offset="0%"   stop-color="#66EFE2"/>
+      <stop offset="8%"   stop-color="#66EFE2"/>
+      <stop offset="20%"  stop-color="#0A95FE"/>
+      <stop offset="30%"  stop-color="#0A95FE"/>
+      <stop offset="40%"  stop-color="#66EFE2"/>
+      <stop offset="48%"  stop-color="#66EFE2"/>
+      <stop offset="58%"  stop-color="#0A95FE"/>
+      <stop offset="68%"  stop-color="#0A95FE"/>
+      <stop offset="78%"  stop-color="#66EFE2"/>
+      <stop offset="86%"  stop-color="#66EFE2"/>
+      <stop offset="95%"  stop-color="#0A95FE"/>
+      <stop offset="100%" stop-color="#0A95FE"/>
     </linearGradient>
   </defs>
 

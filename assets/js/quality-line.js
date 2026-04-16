@@ -51,19 +51,19 @@ document.addEventListener('DOMContentLoaded', function () {
     var cycle = (t * 3) % 1;
     var r, g, b;
     if (cycle < 0.4) {
-      // Cyan #00D2FF
-      r = 0; g = 210; b = 255;
+      // Türkis #66EFE2
+      r = 102; g = 239; b = 226;
     } else if (cycle < 0.5) {
-      // Übergang Cyan → Blau
+      // Übergang Türkis → Blau
       var p = (cycle - 0.4) / 0.1;
-      r = 0; g = 210 - p * 114; b = 255 - p * 95;
+      r = 102 - p * 92; g = 239 - p * 90; b = 226 + p * 28;
     } else if (cycle < 0.9) {
-      // Blau #0060A0
-      r = 0; g = 96; b = 160;
+      // Blau #0A95FE
+      r = 10; g = 149; b = 254;
     } else {
-      // Übergang Blau → Cyan
+      // Übergang Blau → Türkis
       var p = (cycle - 0.9) / 0.1;
-      r = 0; g = 96 + p * 114; b = 160 + p * 95;
+      r = 10 + p * 92; g = 149 + p * 90; b = 254 - p * 28;
     }
     return { r: Math.round(r), g: Math.round(g), b: Math.round(b) };
   }
@@ -108,7 +108,7 @@ document.addEventListener('DOMContentLoaded', function () {
     for (var i = 1; i < totalPoints; i++) {
       ctx.lineTo(points[i].x, points[i].y);
     }
-    ctx.strokeStyle = '#00D2FF';
+    ctx.strokeStyle = '#66EFE2';
     ctx.lineWidth = coreRadius;
     ctx.lineCap = 'round';
     ctx.globalAlpha = 0.9;
