@@ -6,25 +6,36 @@
   preserveAspectRatio="none"
 >
   <defs>
+    <!-- 3 Zyklen mit starkem Kontrast: Cyan ↔ tiefes Blau -->
     <linearGradient id="qualityGradient" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%"   stop-color="#00D2FF"/>
-      <stop offset="12%"  stop-color="#0080C8"/>
-      <stop offset="22%"  stop-color="#005FA3"/>
-      <stop offset="33%"  stop-color="#00D2FF"/>
-      <stop offset="45%"  stop-color="#0080C8"/>
-      <stop offset="55%"  stop-color="#005FA3"/>
-      <stop offset="66%"  stop-color="#00D2FF"/>
-      <stop offset="78%"  stop-color="#0080C8"/>
-      <stop offset="88%"  stop-color="#005FA3"/>
-      <stop offset="100%" stop-color="#00D2FF"/>
+      <stop offset="8%"   stop-color="#00D2FF"/>
+      <stop offset="20%"  stop-color="#0060A0"/>
+      <stop offset="30%"  stop-color="#0060A0"/>
+      <stop offset="40%"  stop-color="#00D2FF"/>
+      <stop offset="48%"  stop-color="#00D2FF"/>
+      <stop offset="58%"  stop-color="#0060A0"/>
+      <stop offset="68%"  stop-color="#0060A0"/>
+      <stop offset="78%"  stop-color="#00D2FF"/>
+      <stop offset="86%"  stop-color="#00D2FF"/>
+      <stop offset="95%"  stop-color="#0060A0"/>
+      <stop offset="100%" stop-color="#0060A0"/>
     </linearGradient>
   </defs>
 
-  <!-- Glow Layer 4: breitester, weichster Schein -->
+  <!-- Glow Layer 5: breitester atmosphärischer Schein -->
   <path
     d="M50 -20 C20 10,80 30,50 50 C15 72,85 90,50 110 C20 132,80 150,50 170 C15 192,85 210,50 230 C20 252,80 270,50 290 C15 310,85 325,50 340"
     fill="none" stroke="url(#qualityGradient)"
-    stroke-width="30" stroke-linecap="round" opacity="0.04"
+    stroke-width="50" stroke-linecap="round" opacity="0.06"
+    vector-effect="non-scaling-stroke"
+  />
+
+  <!-- Glow Layer 4 -->
+  <path
+    d="M50 -20 C20 10,80 30,50 50 C15 72,85 90,50 110 C20 132,80 150,50 170 C15 192,85 210,50 230 C20 252,80 270,50 290 C15 310,85 325,50 340"
+    fill="none" stroke="url(#qualityGradient)"
+    stroke-width="30" stroke-linecap="round" opacity="0.08"
     vector-effect="non-scaling-stroke"
   />
 
@@ -32,23 +43,15 @@
   <path
     d="M50 -20 C20 10,80 30,50 50 C15 72,85 90,50 110 C20 132,80 150,50 170 C15 192,85 210,50 230 C20 252,80 270,50 290 C15 310,85 325,50 340"
     fill="none" stroke="url(#qualityGradient)"
-    stroke-width="18" stroke-linecap="round" opacity="0.07"
+    stroke-width="16" stroke-linecap="round" opacity="0.12"
     vector-effect="non-scaling-stroke"
   />
 
-  <!-- Glow Layer 2 -->
+  <!-- Glow Layer 2: naher Schein -->
   <path
     d="M50 -20 C20 10,80 30,50 50 C15 72,85 90,50 110 C20 132,80 150,50 170 C15 192,85 210,50 230 C20 252,80 270,50 290 C15 310,85 325,50 340"
     fill="none" stroke="url(#qualityGradient)"
-    stroke-width="8" stroke-linecap="round" opacity="0.15"
-    vector-effect="non-scaling-stroke"
-  />
-
-  <!-- Glow Layer 1: naher Schein -->
-  <path
-    d="M50 -20 C20 10,80 30,50 50 C15 72,85 90,50 110 C20 132,80 150,50 170 C15 192,85 210,50 230 C20 252,80 270,50 290 C15 310,85 325,50 340"
-    fill="none" stroke="url(#qualityGradient)"
-    stroke-width="4" stroke-linecap="round" opacity="0.35"
+    stroke-width="6" stroke-linecap="round" opacity="0.3"
     vector-effect="non-scaling-stroke"
   />
 
