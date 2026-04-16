@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
   svg.style.position = 'absolute';
   svg.style.top = '0';
   svg.style.left = '0';
+  svg.style.willChange = 'transform';
 
   var offset = 0;
 

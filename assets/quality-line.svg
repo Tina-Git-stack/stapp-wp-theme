@@ -6,7 +6,6 @@
   preserveAspectRatio="none"
 >
   <defs>
-    <!-- 3 Zyklen: Cyan → Blau → Cyan → Blau → Cyan → Blau -->
     <linearGradient id="qualityGradient" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%"   stop-color="#00D2FF"/>
       <stop offset="12%"  stop-color="#0080C8"/>
@@ -21,23 +20,43 @@
     </linearGradient>
   </defs>
 
-  <!-- Hauptlinie -->
+  <!-- Glow Layer 4: breitester, weichster Schein -->
   <path
-    d="
-      M50 -20
-      C20 10, 80 30, 50 50
-      C15 72, 85 90, 50 110
-      C20 132, 80 150, 50 170
-      C15 192, 85 210, 50 230
-      C20 252, 80 270, 50 290
-      C15 310, 85 325, 50 340
-    "
-    fill="none"
-    stroke="url(#qualityGradient)"
-    stroke-width="1.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-    opacity="0.9"
+    d="M50 -20 C20 10,80 30,50 50 C15 72,85 90,50 110 C20 132,80 150,50 170 C15 192,85 210,50 230 C20 252,80 270,50 290 C15 310,85 325,50 340"
+    fill="none" stroke="url(#qualityGradient)"
+    stroke-width="30" stroke-linecap="round" opacity="0.04"
+    vector-effect="non-scaling-stroke"
+  />
+
+  <!-- Glow Layer 3 -->
+  <path
+    d="M50 -20 C20 10,80 30,50 50 C15 72,85 90,50 110 C20 132,80 150,50 170 C15 192,85 210,50 230 C20 252,80 270,50 290 C15 310,85 325,50 340"
+    fill="none" stroke="url(#qualityGradient)"
+    stroke-width="18" stroke-linecap="round" opacity="0.07"
+    vector-effect="non-scaling-stroke"
+  />
+
+  <!-- Glow Layer 2 -->
+  <path
+    d="M50 -20 C20 10,80 30,50 50 C15 72,85 90,50 110 C20 132,80 150,50 170 C15 192,85 210,50 230 C20 252,80 270,50 290 C15 310,85 325,50 340"
+    fill="none" stroke="url(#qualityGradient)"
+    stroke-width="8" stroke-linecap="round" opacity="0.15"
+    vector-effect="non-scaling-stroke"
+  />
+
+  <!-- Glow Layer 1: naher Schein -->
+  <path
+    d="M50 -20 C20 10,80 30,50 50 C15 72,85 90,50 110 C20 132,80 150,50 170 C15 192,85 210,50 230 C20 252,80 270,50 290 C15 310,85 325,50 340"
+    fill="none" stroke="url(#qualityGradient)"
+    stroke-width="4" stroke-linecap="round" opacity="0.35"
+    vector-effect="non-scaling-stroke"
+  />
+
+  <!-- Hauptlinie: scharf und leuchtend -->
+  <path
+    d="M50 -20 C20 10,80 30,50 50 C15 72,85 90,50 110 C20 132,80 150,50 170 C15 192,85 210,50 230 C20 252,80 270,50 290 C15 310,85 325,50 340"
+    fill="none" stroke="url(#qualityGradient)"
+    stroke-width="1.5" stroke-linecap="round" opacity="0.9"
     vector-effect="non-scaling-stroke"
   />
 </svg>
