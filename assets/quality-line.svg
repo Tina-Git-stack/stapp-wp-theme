@@ -6,7 +6,6 @@
   preserveAspectRatio="none"
 >
   <defs>
-    <!-- 3 Zyklen mit starkem Kontrast: Cyan ↔ tiefes Blau -->
     <linearGradient id="qualityGradient" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0%"   stop-color="#00D2FF"/>
       <stop offset="8%"   stop-color="#00D2FF"/>
@@ -23,40 +22,9 @@
     </linearGradient>
   </defs>
 
-  <!-- Glow Layer 5: breitester atmosphärischer Schein -->
+  <!-- Hauptlinie -->
   <path
-    d="M50 -20 C20 10,80 30,50 50 C15 72,85 90,50 110 C20 132,80 150,50 170 C15 192,85 210,50 230 C20 252,80 270,50 290 C15 310,85 325,50 340"
-    fill="none" stroke="url(#qualityGradient)"
-    stroke-width="50" stroke-linecap="round" opacity="0.06"
-    vector-effect="non-scaling-stroke"
-  />
-
-  <!-- Glow Layer 4 -->
-  <path
-    d="M50 -20 C20 10,80 30,50 50 C15 72,85 90,50 110 C20 132,80 150,50 170 C15 192,85 210,50 230 C20 252,80 270,50 290 C15 310,85 325,50 340"
-    fill="none" stroke="url(#qualityGradient)"
-    stroke-width="30" stroke-linecap="round" opacity="0.08"
-    vector-effect="non-scaling-stroke"
-  />
-
-  <!-- Glow Layer 3 -->
-  <path
-    d="M50 -20 C20 10,80 30,50 50 C15 72,85 90,50 110 C20 132,80 150,50 170 C15 192,85 210,50 230 C20 252,80 270,50 290 C15 310,85 325,50 340"
-    fill="none" stroke="url(#qualityGradient)"
-    stroke-width="16" stroke-linecap="round" opacity="0.12"
-    vector-effect="non-scaling-stroke"
-  />
-
-  <!-- Glow Layer 2: naher Schein -->
-  <path
-    d="M50 -20 C20 10,80 30,50 50 C15 72,85 90,50 110 C20 132,80 150,50 170 C15 192,85 210,50 230 C20 252,80 270,50 290 C15 310,85 325,50 340"
-    fill="none" stroke="url(#qualityGradient)"
-    stroke-width="6" stroke-linecap="round" opacity="0.3"
-    vector-effect="non-scaling-stroke"
-  />
-
-  <!-- Hauptlinie: scharf und leuchtend -->
-  <path
+    id="qualityPath"
     d="M50 -20 C20 10,80 30,50 50 C15 72,85 90,50 110 C20 132,80 150,50 170 C15 192,85 210,50 230 C20 252,80 270,50 290 C15 310,85 325,50 340"
     fill="none" stroke="url(#qualityGradient)"
     stroke-width="1.5" stroke-linecap="round" opacity="0.9"
