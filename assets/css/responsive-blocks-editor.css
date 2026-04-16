@@ -1,0 +1,72 @@
+/**
+ * STApp Responsive Blocks — Editor Panel Styles
+ */
+
+/* Tab bar */
+.stapp-responsive-tabs .components-tab-panel__tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #ddd;
+}
+
+.stapp-responsive-tabs .components-tab-panel__tabs button {
+    flex: 1;
+    padding: 8px 4px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    border-bottom: 2px solid transparent;
+    background: none;
+    cursor: pointer;
+    color: #757575;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.stapp-responsive-tabs .components-tab-panel__tabs button.is-active {
+    color: var(--wp-admin-theme-color, #007cba);
+    border-bottom-color: var(--wp-admin-theme-color, #007cba);
+}
+
+/* Section titles inside panel */
+.stapp-responsive-controls .stapp-responsive-section-title {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #1e1e1e;
+    margin: 16px 0 8px;
+}
+
+.stapp-responsive-controls .stapp-responsive-section-title:first-child {
+    margin-top: 0;
+}
+
+/* 2-column grid for spacing inputs */
+.stapp-responsive-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 12px;
+}
+
+/* Indicator badge on blocks with responsive values */
+[data-stapp-responsive="true"]::after {
+    content: 'R';
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    color: #fff;
+    background: var(--wp-admin-theme-color, #007cba);
+    border-radius: 3px;
+    pointer-events: none;
+    z-index: 1;
+}

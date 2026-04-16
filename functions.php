@@ -27,5 +27,8 @@ require_once get_template_directory() . '/inc/template-tags.php';
 // Block Customization
 require_once get_template_directory() . '/inc/blocks.php';
 
+// Responsive Block Controls (per-breakpoint settings)
+require_once get_template_directory() . '/inc/responsive-blocks.php';
+
 // Customizer
 require_once get_template_directory() . '/inc/customizer.php';

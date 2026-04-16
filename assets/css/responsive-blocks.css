@@ -1,0 +1,7 @@
+/**
+ * STApp Responsive Blocks — Frontend Utility Styles
+ */
+
+.stapp-responsive-hidden {
+    display: none !important;
+}
