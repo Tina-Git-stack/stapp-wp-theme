@@ -12,32 +12,52 @@
             "customDuotone": true,
             "customGradient": true,
             "defaultGradients": true,
-            "defaultPalette": true,
+            "defaultPalette": false,
             "palette": [
                 {
                     "slug": "primary",
-                    "color": "#0073aa",
-                    "name": "Prim�r"
+                    "color": "#007aff",
+                    "name": "Primär (Blau)"
                 },
                 {
                     "slug": "secondary",
-                    "color": "#23282d",
-                    "name": "Sekund�r"
+                    "color": "#4a90e2",
+                    "name": "Sekundär (Hellblau)"
+                },
+                {
+                    "slug": "accent-cyan",
+                    "color": "#5DD3E8",
+                    "name": "Akzent Cyan"
+                },
+                {
+                    "slug": "accent-green",
+                    "color": "#00D9A3",
+                    "name": "Akzent Grün"
+                },
+                {
+                    "slug": "dark",
+                    "color": "#1a1a1a",
+                    "name": "Dunkel"
+                },
+                {
+                    "slug": "darker",
+                    "color": "#0f0f0f",
+                    "name": "Sehr dunkel"
                 },
                 {
                     "slug": "white",
                     "color": "#ffffff",
-                    "name": "Wei�"
+                    "name": "Weiß"
                 },
                 {
-                    "slug": "black",
-                    "color": "#000000",
-                    "name": "Schwarz"
+                    "slug": "text-light",
+                    "color": "rgba(255,255,255,0.85)",
+                    "name": "Text hell"
                 },
                 {
-                    "slug": "gray",
-                    "color": "#f5f5f5",
-                    "name": "Grau"
+                    "slug": "text-muted",
+                    "color": "rgba(255,255,255,0.6)",
+                    "name": "Text gedämpft"
                 }
             ]
         },
@@ -62,12 +82,22 @@
                 {
                     "slug": "large",
                     "size": "28px",
-                    "name": "Gro�"
+                    "name": "Groß"
                 },
                 {
                     "slug": "x-large",
                     "size": "36px",
-                    "name": "Sehr gro�"
+                    "name": "Sehr groß"
+                },
+                {
+                    "slug": "xx-large",
+                    "size": "3rem",
+                    "name": "XXL"
+                },
+                {
+                    "slug": "hero",
+                    "size": "clamp(2.5rem, 6vw, 4.5rem)",
+                    "name": "Hero"
                 }
             ],
             "lineHeight": true
@@ -75,7 +105,17 @@
         "spacing": {
             "padding": true,
             "margin": true,
-            "units": ["px", "em", "rem", "vh", "vw", "%"]
+            "blockGap": true,
+            "units": ["px", "em", "rem", "vh", "vw", "%"],
+            "spacingSizes": [
+                { "slug": "10", "size": "0.5rem", "name": "XS" },
+                { "slug": "20", "size": "1rem", "name": "S" },
+                { "slug": "30", "size": "1.5rem", "name": "M" },
+                { "slug": "40", "size": "2rem", "name": "L" },
+                { "slug": "50", "size": "3rem", "name": "XL" },
+                { "slug": "60", "size": "4rem", "name": "XXL" },
+                { "slug": "70", "size": "6rem", "name": "XXXL" }
+            ]
         },
         "border": {
             "color": true,
@@ -90,7 +130,7 @@
             "text": "rgba(255, 255, 255, 0.85)"
         },
         "typography": {
-            "fontFamily": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif",
+            "fontFamily": "-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif",
             "fontSize": "var(--wp--preset--font-size--normal)",
             "lineHeight": "1.6"
         },

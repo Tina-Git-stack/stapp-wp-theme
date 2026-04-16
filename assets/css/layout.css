@@ -38,7 +38,7 @@
 }
 
 .site-header.scrolled {
-    background: rgba(26, 26, 26, 0.8);
+    background: var(--stapp-header-bg, rgba(26, 26, 26, 0.8));
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -61,7 +61,7 @@
 }
 
 .site-title a {
-    color: #ffffff;
+    color: var(--stapp-header-text, #ffffff);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -90,7 +90,7 @@
 }
 
 .main-navigation a {
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--stapp-header-text, rgba(255, 255, 255, 0.85));
     text-decoration: none;
     padding: 0.5rem 1rem;
     display: block;
@@ -112,10 +112,10 @@
    ========================================================================== */
 
 .site-footer {
-    background: rgba(15, 15, 15, 0.6);
+    background: var(--stapp-footer-bg, rgba(15, 15, 15, 0.6));
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    color: white;
+    color: var(--stapp-footer-text, white);
     padding: 3rem 0 1.5rem;
     margin-top: 0;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -161,29 +161,6 @@
     padding: 0;
 }
 
-/* Section Groups - transparent & centered by default */
-.wp-block-group:not(.glass-container):not(.is-style-hero-section):not(.hero-section) {
-    background: transparent !important;
-    background-color: transparent !important;
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 4rem var(--spacing-unit);
-}
-
-.wp-block-group__inner-container {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-
-/* Ensure main content area has no background override */
-.site-main,
-.site-content,
-#primary {
-    background: transparent !important;
-    background-color: transparent !important;
-}
-
 /* Adjust for fixed header and footer positioning */
 body {
     padding-top: 0;
@@ -200,20 +177,19 @@ body {
 }
 
 .site-content {
-  position: relative;
-  z-index: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .bg-quality-line {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  pointer-events: none;
-  z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
 }
-
 
 .site-footer {
     flex: 0 0 auto;

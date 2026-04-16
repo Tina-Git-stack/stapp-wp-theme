@@ -37,7 +37,8 @@ function stapp_wp_theme_setup() {
         'assets/css/layout.css',
         'assets/css/components.css',
         'assets/css/blocks.css',
-        'assets/css/hero.css'
+        'assets/css/hero.css',
+        'assets/css/editor-style.css'
     ));
 
     // Custom Logo

@@ -1,152 +1,35 @@
 /**
  * Components Styles
- * Wiederverwendbare Komponenten (Entry, Widgets, Navigation, Comments)
+ * Wiederverwendbare Komponenten (Glass, Entry, Widgets, Navigation, Comments)
  *
  * @package STApp_WP_Theme
  */
 
 /* ==========================================================================
-   Glass Container (reusable)
+   Glass Block Style
    ========================================================================== */
 
-.glass-container {
-    background: rgba(255, 255, 255, 0.03);
+.is-style-glass {
+    background: rgba(255, 255, 255, 0.03) !important;
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
     border-radius: 24px;
-    padding: 4rem 3rem;
+    padding: 3rem;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Glass Container Variants */
-.glass-container.centered {
-    max-width: 900px;
-}
-
-.glass-container.wide {
-    max-width: 1400px;
 }
 
 @media screen and (max-width: 768px) {
-    .glass-container {
+    .is-style-glass {
         padding: 3rem 2rem;
         border-radius: 20px;
     }
 }
 
 @media screen and (max-width: 480px) {
-    .glass-container {
+    .is-style-glass {
         padding: 2.5rem 1.5rem;
         border-radius: 16px;
-    }
-}
-
-/* ==========================================================================
-   Leistungen Grid (50/50 mit versetzter Höhe)
-   ========================================================================== */
-
-.leistungen-grid {
-    max-width: 1400px !important;
-    margin: 0 auto !important;
-    padding: 4rem var(--spacing-unit) !important;
-}
-
-.leistungen-grid > .wp-block-group__inner-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: start;
-}
-
-/* Glass-Container im Grid - gleiche Breite erzwingen */
-.leistungen-grid .glass-container {
-    max-width: none !important;
-    width: 100% !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    overflow: visible !important;
-    position: relative !important;
-    padding-top: 240px !important;
-}
-
-/* Text-Elemente im Container über Bild positionieren */
-.leistungen-grid .glass-container h2,
-.leistungen-grid .glass-container h3,
-.leistungen-grid .glass-container p {
-    position: relative !important;
-    z-index: 5 !important;
-}
-
-/* Leistungen Bilder - größer und über Rand ragend mit absolute positioning */
-.leistungen-img {
-    position: absolute !important;
-    top: -35% !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
-    z-index: 1 !important;
-    width: 70% !important;
-}
-
-.leistungen-img img {
-    width: 100% !important;
-    height: auto !important;
-    object-fit: contain !important;
-    display: block !important;
-}
-
-/* QS Bild - 3D Perspektive und Rotation */
-.qs-img {
-    width: 60% !important;
-    left: 45% !important;
-}
-
-.qs-img img {
-    transform: perspective(200px) rotateY(-15deg) !important;
-    transform-style: preserve-3d !important;
-}
-
-/* Erster Glass-Container (QS) - höher positioniert */
-.leistungen-grid .glass-container:nth-child(1) {
-    margin-top: 0;
-}
-
-/* Zweiter Glass-Container (App) - tiefer positioniert */
-.leistungen-grid .glass-container:nth-child(2) {
-    margin-top: 20rem;
-}
-
-/* Responsive: Stack auf mobil */
-@media screen and (max-width: 768px) {
-    .leistungen-grid > .wp-block-group__inner-container {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .leistungen-grid .glass-container:nth-child(2) {
-        margin-top: 0;
-    }
-
-    /* Bilder auf mobil: zurück zu Standard */
-    .leistungen-img {
-        top: -20% !important;
-        width: 60% !important;
-    }
-
-    .qs-img {
-        width: 60% !important;
-        left: 50% !important;
-    }
-
-    .qs-img img {
-        transform: perspective(300px) rotateY(-10deg) !important;
-    }
-
-    /* Container Padding auf mobil reduzieren */
-    .leistungen-grid .glass-container {
-        padding-top: 180px !important;
     }
 }
 

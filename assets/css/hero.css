@@ -1,165 +1,44 @@
 /**
- * Hero Section Styles
- * Apple-inspired design with glass morphism and blur effects
+ * Hero & Section Block Styles
  *
  * @package STApp_WP_Theme
  */
 
 /* ==========================================================================
-   Hero Section Base
+   Hero Section Block Style
    ========================================================================== */
 
-.is-style-hero-section,
-.hero-section {
-    position: relative;
+.is-style-hero-section {
     min-height: 85vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 4rem 0;
+    padding-top: 120px;
+    padding-bottom: 4rem;
     width: 100%;
-    left: 0;
-    right: 0;
-}
-
-/* Glass Layer Container */
-.is-style-hero-section > .wp-block-group__inner-container,
-.hero-section > .wp-block-group__inner-container {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 var(--spacing-unit);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    /* Glass Layer direkt auf Hero-Inhalt */
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    padding: 3rem;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    max-width: 1000px;
-}
-
-/* Glass Container (nested group inside hero) */
-.hero-glass-container {
-    background: rgba(255, 255, 255, 0.03);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 24px;
-    padding: 3rem 3rem;
-    max-width: 1000px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    width: 100%;
-}
-
-/* Ensure vertical stacking of content */
-.hero-glass-container > .wp-block-group__inner-container {
-    display: flex;
-    flex-direction: column;
-    gap: 0;
 }
 
 /* ==========================================================================
-   Typography
+   Erste Sektion Block Style (nur Header-Abstand)
    ========================================================================== */
 
-.hero-headline {
-    font-size: clamp(2.5rem, 6vw, 4.5rem);
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.02em;
-    padding-bottom: 0px;
-    margin: 0 0 0rem 0;
-    text-align: center;
-    /* Gradient text effect with logo colors - more contrast */
+.is-style-first-section {
+    padding-top: 120px;
+}
+
+/* ==========================================================================
+   Gradient Text Block Style
+   ========================================================================== */
+
+.is-style-gradient-text {
     background: linear-gradient(5deg, #00D9A3 0%, #5DD3E8 25%, #4A90E2 60%, #0066FF 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
 }
 
-.hero-subline {
-    font-size: clamp(1.25rem, 3vw, 1.75rem);
-    font-weight: 400;
-    line-height: 1.2;
-    color: rgba(255, 255, 255, 0.9);
-    padding-top: 50px;
-    text-align: center;
-}
-
-.hero-description {
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    line-height: 1.7;
-    color: rgba(255, 255, 255, 0.75);
-    margin: 0;
-    text-align: center;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.hero-description + .hero-description {
-    margin-top: 1rem;
-}
-
 /* ==========================================================================
-   Parallax Effect
-   ========================================================================== */
-
-.is-style-hero-section[data-parallax],
-.hero-section[data-parallax] {
-    will-change: transform;
-}
-
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-    .is-style-hero-section[data-parallax],
-    .hero-section[data-parallax] {
-        transform: none !important;
-    }
-}
-
-/* ==========================================================================
-   Responsive
-   ========================================================================== */
-
-@media screen and (max-width: 768px) {
-    .is-style-hero-section,
-    .hero-section {
-        min-height: 90vh;
-        padding: 4rem 0;
-    }
-
-    .hero-glass-container {
-        padding: 3rem 2rem;
-        border-radius: 20px;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    .hero-glass-container {
-        padding: 2.5rem 1.5rem;
-        border-radius: 16px;
-    }
-
-    .hero-headline {
-        margin-bottom: 1rem;
-    }
-
-    .hero-subline {
-        margin-bottom: 1.5rem;
-    }
-}
-
-/* ==========================================================================
-   Page Title Hide (Startseite)
+   Page Title ausblenden auf Startseite
    ========================================================================== */
 
 .page .entry-header .entry-title,
@@ -168,12 +47,12 @@
 }
 
 /* ==========================================================================
-   Content Spacing after Hero
+   Responsive
    ========================================================================== */
 
-.is-style-hero-section + *,
-.hero-section + * {
-    background-color: var(--color-background);
-    margin-top: 0;
-    padding-top: 0;
+@media screen and (max-width: 768px) {
+    .is-style-hero-section {
+        min-height: 90vh;
+        padding-top: 100px;
+    }
 }
