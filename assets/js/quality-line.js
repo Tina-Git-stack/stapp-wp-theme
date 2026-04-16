@@ -3,55 +3,51 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!container) return;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-  // Canvas für den Glow erstellen
   var canvas = document.createElement('canvas');
   canvas.style.position = 'absolute';
   canvas.style.top = '0';
   canvas.style.left = '0';
   canvas.style.width = '100%';
-  canvas.style.height = '400%';
+  canvas.style.height = '600%';
   canvas.style.willChange = 'transform';
   container.appendChild(canvas);
 
-  // SVG ausblenden (Canvas übernimmt alles)
   var svg = container.querySelector('svg');
   if (svg) svg.style.display = 'none';
 
   var ctx = canvas.getContext('2d');
   var dpr = window.devicePixelRatio || 1;
-  var totalHeight = 440; // Pfad-Bereich in virtuellen Einheiten
 
-  // Pfad-Punkte generieren (8 Segmente für mehr Länge)
+  // 12 Segmente, jedes 60 Einheiten hoch = 720 total
   function getCurvePoints(w, h) {
     var points = [];
-    var segments = [
-      { x1: 0.50, y1: -20/totalHeight, cx1: 0.20, cy1: 10/totalHeight, cx2: 0.80, cy2: 30/totalHeight, x2: 0.50, y2: 50/totalHeight },
-      { x1: 0.50, y1: 50/totalHeight, cx1: 0.15, cy1: 72/totalHeight, cx2: 0.85, cy2: 90/totalHeight, x2: 0.50, y2: 110/totalHeight },
-      { x1: 0.50, y1: 110/totalHeight, cx1: 0.20, cy1: 132/totalHeight, cx2: 0.80, cy2: 150/totalHeight, x2: 0.50, y2: 170/totalHeight },
-      { x1: 0.50, y1: 170/totalHeight, cx1: 0.15, cy1: 192/totalHeight, cx2: 0.85, cy2: 210/totalHeight, x2: 0.50, y2: 230/totalHeight },
-      { x1: 0.50, y1: 230/totalHeight, cx1: 0.20, cy1: 252/totalHeight, cx2: 0.80, cy2: 270/totalHeight, x2: 0.50, y2: 290/totalHeight },
-      { x1: 0.50, y1: 290/totalHeight, cx1: 0.15, cy1: 312/totalHeight, cx2: 0.85, cy2: 330/totalHeight, x2: 0.50, y2: 350/totalHeight },
-      { x1: 0.50, y1: 350/totalHeight, cx1: 0.20, cy1: 372/totalHeight, cx2: 0.80, cy2: 390/totalHeight, x2: 0.50, y2: 410/totalHeight },
-      { x1: 0.50, y1: 410/totalHeight, cx1: 0.15, cy1: 425/totalHeight, cx2: 0.85, cy2: 435/totalHeight, x2: 0.50, y2: 450/totalHeight }
-    ];
+    var total = 720;
+    var segHeight = 60;
+    var numSegs = 12;
 
-    for (var s = 0; s < segments.length; s++) {
-      var seg = segments[s];
-      var steps = 80;
+    for (var s = 0; s < numSegs; s++) {
+      var yStart = (s * segHeight - 20) / total;
+      var yEnd = ((s + 1) * segHeight - 20) / total;
+      var yMid1 = yStart + (yEnd - yStart) * 0.35;
+      var yMid2 = yStart + (yEnd - yStart) * 0.65;
+      // Alternierend links/rechts
+      var cx1 = (s % 2 === 0) ? 0.20 : 0.80;
+      var cx2 = (s % 2 === 0) ? 0.80 : 0.20;
+
+      var steps = 60;
       for (var i = 0; i <= steps; i++) {
         var t = i / steps;
         var u = 1 - t;
-        var x = u*u*u * seg.x1 + 3*u*u*t * seg.cx1 + 3*u*t*t * seg.cx2 + t*t*t * seg.x2;
-        var y = u*u*u * seg.y1 + 3*u*u*t * seg.cy1 + 3*u*t*t * seg.cy2 + t*t*t * seg.y2;
+        var x = u*u*u * 0.50 + 3*u*u*t * cx1 + 3*u*t*t * cx2 + t*t*t * 0.50;
+        var y = u*u*u * yStart + 3*u*u*t * yMid1 + 3*u*t*t * yMid2 + t*t*t * yEnd;
         points.push({ x: x * w, y: y * h });
       }
     }
     return points;
   }
 
-  // Farbverlauf entlang der Linie (3 Zyklen Türkis ↔ Blau)
   function getColorAt(t) {
-    var cycle = (t * 3) % 1;
+    var cycle = (t * 4) % 1;
     var r, g, b;
     if (cycle < 0.4) {
       r = 102; g = 239; b = 226;
@@ -73,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function resize() {
     var rect = container.getBoundingClientRect();
     canvas.width = rect.width * dpr;
-    canvas.height = rect.height * 4 * dpr;
+    canvas.height = rect.height * 6 * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
 
@@ -85,7 +81,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var points = getCurvePoints(w, h);
     var totalPoints = points.length;
 
-    // Glow zeichnen
     for (var i = 0; i < totalPoints; i += 2) {
       var pt = points[i];
       var t = i / totalPoints;
@@ -101,7 +96,6 @@ document.addEventListener('DOMContentLoaded', function () {
       ctx.fillRect(pt.x - glowRadius, pt.y - glowRadius, glowRadius * 2, glowRadius * 2);
     }
 
-    // Kern-Linie zeichnen
     for (var i = 0; i < totalPoints - 1; i++) {
       var t = i / totalPoints;
       var col = getColorAt(t);
@@ -118,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function () {
   resize();
   draw();
 
-  // Nur bei Resize neu zeichnen
   var resizeTimer;
   window.addEventListener('resize', function () {
     clearTimeout(resizeTimer);
@@ -129,11 +122,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 150);
   });
 
-  // Animation: sanfte Auf/Ab + Links/Rechts Bewegung
+  // Animation: sanfte Auf/Ab + Links/Rechts
   var offset = 0;
   function animate() {
     offset += 0.015;
-    var translateY = -73 + Math.sin(offset) * 4;
+    var translateY = -82 + Math.sin(offset) * 3;
     var translateX = Math.sin(offset * 0.7) * 3;
     canvas.style.transform = 'translateY(' + translateY + '%) translateX(' + translateX + '%)';
     requestAnimationFrame(animate);
