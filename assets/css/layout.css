@@ -190,6 +190,11 @@ body {
     pointer-events: none;
     z-index: 0;
     overflow: hidden;
+    filter:
+        drop-shadow(0 0 3px rgba(0, 210, 255, 0.8))
+        drop-shadow(0 0 10px rgba(0, 210, 255, 0.5))
+        drop-shadow(0 0 30px rgba(0, 210, 255, 0.3))
+        drop-shadow(0 0 60px rgba(0, 128, 200, 0.2));
 }
 
 .site-footer {
