@@ -31,11 +31,11 @@
    ========================================================================== */
 
 .is-style-gradient-text {
-    background: linear-gradient(180deg, #40E0FF 0%, #0070B8 100%);
+    background: linear-gradient(180deg, #0A95FE 0%, #66EFE2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.4)) drop-shadow(0 0 40px rgba(0, 128, 200, 0.2));
+    filter: drop-shadow(0 0 1px rgba(255, 255, 255, 0.5));
 }
 
 /* ==========================================================================
