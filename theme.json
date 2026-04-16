@@ -108,13 +108,13 @@
             "blockGap": true,
             "units": ["px", "em", "rem", "vh", "vw", "%"],
             "spacingSizes": [
-                { "slug": "10", "size": "0.5rem", "name": "XS" },
-                { "slug": "20", "size": "1rem", "name": "S" },
-                { "slug": "30", "size": "1.5rem", "name": "M" },
-                { "slug": "40", "size": "2rem", "name": "L" },
-                { "slug": "50", "size": "3rem", "name": "XL" },
-                { "slug": "60", "size": "4rem", "name": "XXL" },
-                { "slug": "70", "size": "6rem", "name": "XXXL" }
+                { "slug": "10", "size": "2%", "name": "XS (2%)" },
+                { "slug": "20", "size": "4%", "name": "S (4%)" },
+                { "slug": "30", "size": "6%", "name": "M (6%)" },
+                { "slug": "40", "size": "8%", "name": "L (8%)" },
+                { "slug": "50", "size": "12%", "name": "XL (12%)" },
+                { "slug": "60", "size": "16%", "name": "XXL (16%)" },
+                { "slug": "70", "size": "24%", "name": "XXXL (24%)" }
             ]
         },
         "border": {
