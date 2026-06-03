@@ -336,17 +336,26 @@
 }
 
 /* Dropdown – Simple toggle (default mobile) */
-.mobile-dropdown .main-navigation.mobile-active ul {
+.mobile-dropdown.nav-mobile .main-navigation.mobile-active {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1001;
+}
+
+.mobile-dropdown.nav-mobile .main-navigation.mobile-active ul {
     display: none;
     flex-direction: column;
     gap: 0;
     background: rgba(26, 26, 26, 0.95);
-    border-radius: 8px;
-    padding: 0.5rem 0;
-    margin-top: 0.5rem;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 0 0 8px 8px;
+    padding: 0.5rem var(--spacing-unit);
 }
 
-.mobile-dropdown .main-navigation.mobile-active.toggled ul {
+.mobile-dropdown.nav-mobile .main-navigation.mobile-active.toggled ul {
     display: flex;
 }
 
@@ -517,8 +526,22 @@ body {
    ========================================================================== */
 
 /* Mobile state: applied via JS based on --nav-breakpoint */
+.site-header.nav-mobile .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-header.nav-mobile .site-branding {
+    margin-bottom: 0;
+}
+
 .site-header.nav-mobile .menu-toggle {
     display: flex;
+}
+
+.site-header.nav-mobile .main-navigation {
+    margin-top: 0;
 }
 
 .site-header.nav-mobile .main-navigation .sub-menu {

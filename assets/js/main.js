@@ -16,6 +16,14 @@
     }
 
     /**
+     * Check if current mobile style uses overlay (slide or fullscreen)
+     */
+    function mobileStyleUsesOverlay() {
+        var header = $('#masthead');
+        return header.hasClass('mobile-slide') || header.hasClass('mobile-fullscreen');
+    }
+
+    /**
      * Update mobile/desktop state based on breakpoint
      */
     function updateNavResponsiveState() {
@@ -29,6 +37,7 @@
         } else {
             header.addClass('nav-desktop').removeClass('nav-mobile');
             navigation.removeClass('mobile-active toggled');
+            header.find('.menu-toggle').removeClass('is-active').attr('aria-expanded', 'false');
             $('.mobile-menu-overlay').removeClass('active');
             $('body').removeClass('mobile-menu-open');
         }
@@ -62,7 +71,10 @@
             } else {
                 navigation.addClass('toggled');
                 $(this).attr('aria-expanded', 'true').addClass('is-active');
-                overlay.addClass('active');
+                // Only activate overlay for slide and fullscreen modes
+                if (mobileStyleUsesOverlay()) {
+                    overlay.addClass('active');
+                }
                 $('body').addClass('mobile-menu-open');
             }
         });
@@ -148,9 +160,7 @@
 
         if (hero.length === 0) return;
 
-        // Check for reduced motion preference
         var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
         if (prefersReducedMotion) return;
 
         hero.attr('data-parallax', 'true');
@@ -159,7 +169,6 @@
             var scrolled = $(this).scrollTop();
             var heroHeight = hero.outerHeight();
 
-            // Only apply parallax while hero is visible
             if (scrolled < heroHeight) {
                 var parallaxValue = scrolled * 0.5;
                 hero.css('transform', 'translateY(' + parallaxValue + 'px)');

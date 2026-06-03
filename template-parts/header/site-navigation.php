@@ -6,12 +6,12 @@
  */
 ?>
 
+<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+</button>
 <nav id="site-navigation" class="main-navigation">
-    <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-    </button>
     <button class="mobile-menu-close" aria-label="<?php esc_attr_e('Menü schließen', 'stapp-wp-theme'); ?>">&times;</button>
     <?php
     wp_nav_menu(array(
