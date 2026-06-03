@@ -33,7 +33,18 @@
 <div id="page" class="site">
     <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Zum Inhalt springen', 'stapp-wp-theme'); ?></a>
 
-    <header id="masthead" class="site-header">
+    <?php
+    $nav_design    = get_theme_mod('stapp_wp_nav_design', 'classic');
+    $submenu_style = get_theme_mod('stapp_wp_nav_submenu_style', 'dropdown');
+    $mobile_style  = get_theme_mod('stapp_wp_nav_mobile_style', 'dropdown');
+    $nav_classes   = sprintf(
+        'site-header nav-style-%s submenu-%s mobile-%s',
+        esc_attr($nav_design),
+        esc_attr($submenu_style),
+        esc_attr($mobile_style)
+    );
+    ?>
+    <header id="masthead" class="<?php echo $nav_classes; ?>">
         <div class="container">
             <?php get_template_part('template-parts/header/site-branding'); ?>
             <?php get_template_part('template-parts/header/site-navigation'); ?>

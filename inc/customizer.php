@@ -35,6 +35,46 @@ function stapp_wp_sanitize_checkbox($value) {
 }
 
 /**
+ * Sanitize nav design select
+ */
+function stapp_wp_sanitize_nav_design($value) {
+    $valid = array('classic', 'minimal', 'pill', 'glass', 'underline');
+    return in_array($value, $valid, true) ? $value : 'classic';
+}
+
+/**
+ * Sanitize nav font weight select
+ */
+function stapp_wp_sanitize_font_weight($value) {
+    $valid = array('300', '400', '500', '600', '700');
+    return in_array((string) $value, $valid, true) ? $value : '400';
+}
+
+/**
+ * Sanitize nav text transform select
+ */
+function stapp_wp_sanitize_text_transform($value) {
+    $valid = array('none', 'uppercase', 'capitalize');
+    return in_array($value, $valid, true) ? $value : 'none';
+}
+
+/**
+ * Sanitize submenu style select
+ */
+function stapp_wp_sanitize_submenu_style($value) {
+    $valid = array('dropdown', 'flyout', 'mega');
+    return in_array($value, $valid, true) ? $value : 'dropdown';
+}
+
+/**
+ * Sanitize mobile style select
+ */
+function stapp_wp_sanitize_mobile_style($value) {
+    $valid = array('slide', 'fullscreen', 'dropdown');
+    return in_array($value, $valid, true) ? $value : 'dropdown';
+}
+
+/**
  * Add Customizer Settings
  */
 function stapp_wp_theme_customize_register($wp_customize) {
@@ -133,6 +173,159 @@ function stapp_wp_theme_customize_register($wp_customize) {
         'label'   => __('Header-Textfarbe', 'stapp-wp-theme'),
         'section' => 'stapp_wp_header_settings',
     )));
+
+    // =========================================================================
+    // Navigation Section
+    // =========================================================================
+    $wp_customize->add_section('stapp_wp_navigation_settings', array(
+        'title'    => __('Navigation', 'stapp-wp-theme'),
+        'priority' => 31,
+    ));
+
+    // --- A. Navigations-Design ---
+    $wp_customize->add_setting('stapp_wp_nav_design', array(
+        'default'           => 'classic',
+        'sanitize_callback' => 'stapp_wp_sanitize_nav_design',
+        'transport'         => 'postMessage',
+    ));
+
+    $wp_customize->add_control('stapp_wp_nav_design', array(
+        'label'   => __('Navigations-Design', 'stapp-wp-theme'),
+        'section' => 'stapp_wp_navigation_settings',
+        'type'    => 'select',
+        'choices' => array(
+            'classic'   => __('Klassisch – Hover mit leichtem Hintergrund', 'stapp-wp-theme'),
+            'minimal'   => __('Minimal – Nur Text, dezenter Opacity-Wechsel', 'stapp-wp-theme'),
+            'pill'      => __('Pill – Abgerundete Buttons um jeden Link', 'stapp-wp-theme'),
+            'glass'     => __('Glassmorphism – Blur-Effekt um jeden Link', 'stapp-wp-theme'),
+            'underline' => __('Underline – Animierte Unterstreichung beim Hover', 'stapp-wp-theme'),
+        ),
+    ));
+
+    // --- B. Schrift-Einstellungen ---
+    $wp_customize->add_setting('stapp_wp_nav_font_size', array(
+        'default'           => 16,
+        'sanitize_callback' => 'absint',
+        'transport'         => 'postMessage',
+    ));
+
+    $wp_customize->add_control('stapp_wp_nav_font_size', array(
+        'label'       => __('Schriftgröße (px)', 'stapp-wp-theme'),
+        'section'     => 'stapp_wp_navigation_settings',
+        'type'        => 'range',
+        'input_attrs' => array(
+            'min'  => 12,
+            'max'  => 24,
+            'step' => 1,
+        ),
+    ));
+
+    $wp_customize->add_setting('stapp_wp_nav_font_weight', array(
+        'default'           => '400',
+        'sanitize_callback' => 'stapp_wp_sanitize_font_weight',
+        'transport'         => 'postMessage',
+    ));
+
+    $wp_customize->add_control('stapp_wp_nav_font_weight', array(
+        'label'   => __('Schriftstärke', 'stapp-wp-theme'),
+        'section' => 'stapp_wp_navigation_settings',
+        'type'    => 'select',
+        'choices' => array(
+            '300' => __('300 (Light)', 'stapp-wp-theme'),
+            '400' => __('400 (Normal)', 'stapp-wp-theme'),
+            '500' => __('500 (Medium)', 'stapp-wp-theme'),
+            '600' => __('600 (Semi-Bold)', 'stapp-wp-theme'),
+            '700' => __('700 (Bold)', 'stapp-wp-theme'),
+        ),
+    ));
+
+    $wp_customize->add_setting('stapp_wp_nav_letter_spacing', array(
+        'default'           => 0,
+        'sanitize_callback' => 'absint',
+        'transport'         => 'postMessage',
+    ));
+
+    $wp_customize->add_control('stapp_wp_nav_letter_spacing', array(
+        'label'       => __('Zeichenabstand (px)', 'stapp-wp-theme'),
+        'section'     => 'stapp_wp_navigation_settings',
+        'type'        => 'range',
+        'input_attrs' => array(
+            'min'  => 0,
+            'max'  => 5,
+            'step' => 1,
+        ),
+    ));
+
+    $wp_customize->add_setting('stapp_wp_nav_text_transform', array(
+        'default'           => 'none',
+        'sanitize_callback' => 'stapp_wp_sanitize_text_transform',
+        'transport'         => 'postMessage',
+    ));
+
+    $wp_customize->add_control('stapp_wp_nav_text_transform', array(
+        'label'   => __('Textumwandlung', 'stapp-wp-theme'),
+        'section' => 'stapp_wp_navigation_settings',
+        'type'    => 'select',
+        'choices' => array(
+            'none'       => __('Keine', 'stapp-wp-theme'),
+            'uppercase'  => __('Großbuchstaben', 'stapp-wp-theme'),
+            'capitalize' => __('Wortanfang groß', 'stapp-wp-theme'),
+        ),
+    ));
+
+    // --- C. Untermenü-Verhalten ---
+    $wp_customize->add_setting('stapp_wp_nav_submenu_style', array(
+        'default'           => 'dropdown',
+        'sanitize_callback' => 'stapp_wp_sanitize_submenu_style',
+        'transport'         => 'postMessage',
+    ));
+
+    $wp_customize->add_control('stapp_wp_nav_submenu_style', array(
+        'label'   => __('Untermenü-Stil', 'stapp-wp-theme'),
+        'section' => 'stapp_wp_navigation_settings',
+        'type'    => 'select',
+        'choices' => array(
+            'dropdown' => __('Dropdown – Klassisches Dropdown beim Hover', 'stapp-wp-theme'),
+            'flyout'   => __('Flyout – Seitlich aufklappendes Menü', 'stapp-wp-theme'),
+            'mega'     => __('Mega – Volle Breite, mehrspaltig', 'stapp-wp-theme'),
+        ),
+    ));
+
+    // --- D. Mobiles Menü ---
+    $wp_customize->add_setting('stapp_wp_nav_breakpoint', array(
+        'default'           => 768,
+        'sanitize_callback' => 'absint',
+        'transport'         => 'postMessage',
+    ));
+
+    $wp_customize->add_control('stapp_wp_nav_breakpoint', array(
+        'label'       => __('Mobile Breakpoint (px)', 'stapp-wp-theme'),
+        'description' => __('Ab dieser Breite wird auf Hamburger-Menü umgeschaltet', 'stapp-wp-theme'),
+        'section'     => 'stapp_wp_navigation_settings',
+        'type'        => 'range',
+        'input_attrs' => array(
+            'min'  => 480,
+            'max'  => 1200,
+            'step' => 10,
+        ),
+    ));
+
+    $wp_customize->add_setting('stapp_wp_nav_mobile_style', array(
+        'default'           => 'dropdown',
+        'sanitize_callback' => 'stapp_wp_sanitize_mobile_style',
+        'transport'         => 'postMessage',
+    ));
+
+    $wp_customize->add_control('stapp_wp_nav_mobile_style', array(
+        'label'   => __('Mobiles Menü-Design', 'stapp-wp-theme'),
+        'section' => 'stapp_wp_navigation_settings',
+        'type'    => 'select',
+        'choices' => array(
+            'dropdown'   => __('Dropdown – Einfach aufklappen', 'stapp-wp-theme'),
+            'slide'      => __('Slide – Von der Seite einschieben', 'stapp-wp-theme'),
+            'fullscreen' => __('Fullscreen – Vollbild-Overlay', 'stapp-wp-theme'),
+        ),
+    ));
 
     // =========================================================================
     // Footer Section
@@ -345,6 +538,13 @@ function stapp_wp_theme_customizer_css() {
     $footer_bg_opacity = get_theme_mod('stapp_wp_footer_bg_opacity', 60) / 100;
     $footer_text_color = get_theme_mod('stapp_wp_footer_text_color', '#ffffff');
 
+    // Navigation
+    $nav_font_size      = get_theme_mod('stapp_wp_nav_font_size', 16);
+    $nav_font_weight    = get_theme_mod('stapp_wp_nav_font_weight', '400');
+    $nav_letter_spacing = get_theme_mod('stapp_wp_nav_letter_spacing', 0);
+    $nav_text_transform = get_theme_mod('stapp_wp_nav_text_transform', 'none');
+    $nav_breakpoint     = get_theme_mod('stapp_wp_nav_breakpoint', 768);
+
     // Background
     $bg_gradient_color1 = get_theme_mod('stapp_wp_bg_gradient_color1', '#1a1a2e');
     $bg_gradient_color2 = get_theme_mod('stapp_wp_bg_gradient_color2', '#0f1a2a');
@@ -367,6 +567,11 @@ function stapp_wp_theme_customizer_css() {
             --stapp-blur-color2: <?php echo esc_attr($bg_blur_color2); ?>;
             --stapp-blur-opacity: <?php echo esc_attr($bg_blur_enabled ? $bg_blur_opacity : '0'); ?>;
             --stapp-qualityline-color: <?php echo esc_attr($ql_color); ?>;
+            --nav-font-size: <?php echo esc_attr($nav_font_size); ?>px;
+            --nav-font-weight: <?php echo esc_attr($nav_font_weight); ?>;
+            --nav-letter-spacing: <?php echo esc_attr($nav_letter_spacing); ?>px;
+            --nav-text-transform: <?php echo esc_attr($nav_text_transform); ?>;
+            --nav-breakpoint: <?php echo esc_attr($nav_breakpoint); ?>px;
         }
 
         .custom-logo-link img {

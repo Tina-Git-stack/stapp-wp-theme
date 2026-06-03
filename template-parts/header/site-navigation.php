@@ -10,6 +10,7 @@
     <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
         <?php esc_html_e('Menü', 'stapp-wp-theme'); ?>
     </button>
+    <button class="mobile-menu-close" aria-label="<?php esc_attr_e('Menü schließen', 'stapp-wp-theme'); ?>">&times;</button>
     <?php
     wp_nav_menu(array(
         'theme_location' => 'primary',
@@ -18,3 +19,4 @@
     ));
     ?>
 </nav>
+<div class="mobile-menu-overlay"></div>

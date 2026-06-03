@@ -102,6 +102,75 @@
     });
 
     // =========================================================================
+    // Navigation
+    // =========================================================================
+
+    /**
+     * Helper: Swap a class prefix on an element
+     * e.g. swapClass($el, 'nav-style-', 'nav-style-pill')
+     */
+    function swapClass($el, prefix, newClass) {
+        var classes = $el.attr('class').split(/\s+/);
+        var filtered = classes.filter(function(c) { return c.indexOf(prefix) !== 0; });
+        filtered.push(newClass);
+        $el.attr('class', filtered.join(' '));
+    }
+
+    // A. Nav Design
+    wp.customize('stapp_wp_nav_design', function(value) {
+        value.bind(function(newval) {
+            swapClass($('#masthead'), 'nav-style-', 'nav-style-' + newval);
+        });
+    });
+
+    // B. Font Settings
+    wp.customize('stapp_wp_nav_font_size', function(value) {
+        value.bind(function(newval) {
+            setCssVar('--nav-font-size', newval + 'px');
+        });
+    });
+
+    wp.customize('stapp_wp_nav_font_weight', function(value) {
+        value.bind(function(newval) {
+            setCssVar('--nav-font-weight', newval);
+        });
+    });
+
+    wp.customize('stapp_wp_nav_letter_spacing', function(value) {
+        value.bind(function(newval) {
+            setCssVar('--nav-letter-spacing', newval + 'px');
+        });
+    });
+
+    wp.customize('stapp_wp_nav_text_transform', function(value) {
+        value.bind(function(newval) {
+            setCssVar('--nav-text-transform', newval);
+        });
+    });
+
+    // C. Submenu Style
+    wp.customize('stapp_wp_nav_submenu_style', function(value) {
+        value.bind(function(newval) {
+            swapClass($('#masthead'), 'submenu-', 'submenu-' + newval);
+        });
+    });
+
+    // D. Mobile Menu
+    wp.customize('stapp_wp_nav_breakpoint', function(value) {
+        value.bind(function(newval) {
+            setCssVar('--nav-breakpoint', newval + 'px');
+            // Trigger responsive state update in main.js
+            $(window).trigger('resize');
+        });
+    });
+
+    wp.customize('stapp_wp_nav_mobile_style', function(value) {
+        value.bind(function(newval) {
+            swapClass($('#masthead'), 'mobile-', 'mobile-' + newval);
+        });
+    });
+
+    // =========================================================================
     // Background
     // =========================================================================
 

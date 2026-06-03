@@ -8,15 +8,15 @@
 
 <div class="site-info">
     <p>
-        &copy; <?php echo date('Y'); ?>
-        <a href="<?php echo esc_url(home_url('/')); ?>">
-            <?php bloginfo('name'); ?>
-        </a>
         <?php
-        printf(
-            esc_html__('| Powered by %s', 'stapp-wp-theme'),
-            '<a href="https://wordpress.org/">WordPress</a>'
-        );
+        $copyright_text = get_theme_mod('stapp_wp_footer_copyright', '');
+        if ($copyright_text) {
+            $copyright_text = str_replace('{year}', date('Y'), $copyright_text);
+            $copyright_text = str_replace('{sitename}', get_bloginfo('name'), $copyright_text);
+            echo wp_kses_post($copyright_text);
+        } else {
+            echo '&copy; ' . date('Y') . ' ' . get_bloginfo('name');
+        }
         ?>
     </p>
 </div>
