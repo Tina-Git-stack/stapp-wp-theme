@@ -70,7 +70,7 @@ function stapp_wp_sanitize_submenu_style($value) {
  * Sanitize mobile style select
  */
 function stapp_wp_sanitize_mobile_style($value) {
-    $valid = array('slide', 'fullscreen', 'dropdown');
+    $valid = array('dropdown', 'slide');
     return in_array($value, $valid, true) ? $value : 'dropdown';
 }
 
@@ -340,9 +340,8 @@ function stapp_wp_theme_customize_register($wp_customize) {
         'section' => 'stapp_wp_navigation_settings',
         'type'    => 'select',
         'choices' => array(
-            'dropdown'   => __('Dropdown – Einfach aufklappen', 'stapp-wp-theme'),
-            'slide'      => __('Slide – Von der Seite einschieben', 'stapp-wp-theme'),
-            'fullscreen' => __('Fullscreen – Vollbild-Overlay', 'stapp-wp-theme'),
+            'dropdown' => __('Dropdown – Einfach aufklappen', 'stapp-wp-theme'),
+            'slide'    => __('Slide – Von der Seite einschieben', 'stapp-wp-theme'),
         ),
     ));
 

@@ -16,11 +16,10 @@
     }
 
     /**
-     * Check if current mobile style uses overlay (slide or fullscreen)
+     * Check if current mobile style uses overlay (slide)
      */
     function mobileStyleUsesOverlay() {
-        var header = $('#masthead');
-        return header.hasClass('mobile-slide') || header.hasClass('mobile-fullscreen');
+        return $('#masthead').hasClass('mobile-slide');
     }
 
     /**
@@ -86,6 +85,11 @@
         overlay.on('click', function() {
             closeMobileMenu();
         });
+
+        // Auto-close menu when a nav link is clicked
+        $('#site-navigation').on('click', 'a', function() {
+            closeMobileMenu();
+        });
     }
 
     /**
@@ -137,18 +141,54 @@
     }
 
     /**
-     * Add class to header on scroll
+     * Add class to header on scroll + auto-hide on mobile
      */
     function initStickyHeader() {
-        var header = $('.site-header');
+        var header = $('#masthead');
         var scrollThreshold = 100;
+        var lastScrollTop = 0;
+        var scrollDelta = 10; // minimum scroll amount to trigger hide/show
 
         $(window).on('scroll', function() {
-            if ($(this).scrollTop() > scrollThreshold) {
+            var currentScroll = $(this).scrollTop();
+
+            // Scrolled background
+            if (currentScroll > scrollThreshold) {
                 header.addClass('scrolled');
             } else {
                 header.removeClass('scrolled');
             }
+
+            // Auto-hide on mobile only
+            if (header.hasClass('nav-mobile')) {
+                // Don't hide when menu is open
+                if ($('#site-navigation').hasClass('toggled')) {
+                    header.removeClass('header-hidden');
+                    lastScrollTop = currentScroll;
+                    return;
+                }
+
+                // Don't hide near the top
+                if (currentScroll <= scrollThreshold) {
+                    header.removeClass('header-hidden');
+                    lastScrollTop = currentScroll;
+                    return;
+                }
+
+                var scrollDiff = currentScroll - lastScrollTop;
+
+                if (scrollDiff > scrollDelta) {
+                    // Scrolling down → hide
+                    header.addClass('header-hidden');
+                } else if (scrollDiff < -scrollDelta) {
+                    // Scrolling up → show
+                    header.removeClass('header-hidden');
+                }
+            } else {
+                header.removeClass('header-hidden');
+            }
+
+            lastScrollTop = currentScroll;
         });
     }
 
