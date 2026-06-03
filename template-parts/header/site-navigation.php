@@ -8,7 +8,9 @@
 
 <nav id="site-navigation" class="main-navigation">
     <button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
-        <?php esc_html_e('Menü', 'stapp-wp-theme'); ?>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
     </button>
     <button class="mobile-menu-close" aria-label="<?php esc_attr_e('Menü schließen', 'stapp-wp-theme'); ?>">&times;</button>
     <?php

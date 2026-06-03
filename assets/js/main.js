@@ -40,7 +40,7 @@
     function closeMobileMenu() {
         var navigation = $('#site-navigation');
         navigation.removeClass('toggled');
-        $('.menu-toggle').attr('aria-expanded', 'false');
+        $('.menu-toggle').attr('aria-expanded', 'false').removeClass('is-active');
         $('.mobile-menu-overlay').removeClass('active');
         $('body').removeClass('mobile-menu-open');
     }
@@ -61,7 +61,7 @@
                 closeMobileMenu();
             } else {
                 navigation.addClass('toggled');
-                $(this).attr('aria-expanded', 'true');
+                $(this).attr('aria-expanded', 'true').addClass('is-active');
                 overlay.addClass('active');
                 $('body').addClass('mobile-menu-open');
             }

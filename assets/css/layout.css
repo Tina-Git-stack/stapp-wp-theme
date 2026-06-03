@@ -102,8 +102,37 @@
     position: relative;
 }
 
+/* Hamburger Toggle Button */
 .menu-toggle {
     display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    padding: 0.5rem;
+}
+
+.hamburger-line {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: var(--stapp-header-text, #ffffff);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger → X animation when active */
+.menu-toggle.is-active .hamburger-line:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.menu-toggle.is-active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle.is-active .hamburger-line:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ==========================================================================
@@ -271,7 +300,6 @@
 
 /* Mobile menu overlay for slide/fullscreen */
 .mobile-menu-overlay {
-    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -280,11 +308,46 @@
     background: rgba(0, 0, 0, 0.5);
     z-index: 999;
     opacity: 0;
-    transition: opacity 0.3s ease;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .mobile-menu-overlay.active {
     opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* Mobile menu close button – hidden by default, shown only when toggled in slide/fullscreen */
+.mobile-menu-close {
+    display: none;
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    line-height: 1;
+    z-index: 1002;
+}
+
+/* Dropdown – Simple toggle (default mobile) */
+.mobile-dropdown .main-navigation.mobile-active ul {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(26, 26, 26, 0.95);
+    border-radius: 8px;
+    padding: 0.5rem 0;
+    margin-top: 0.5rem;
+}
+
+.mobile-dropdown .main-navigation.mobile-active.toggled ul {
+    display: flex;
 }
 
 /* Slide – Slides in from the side */
@@ -305,14 +368,18 @@
     overflow-y: auto;
 }
 
-.mobile-slide .main-navigation.mobile-active.toggled {
-    transform: translateX(0);
-}
-
 .mobile-slide .main-navigation.mobile-active ul {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
+}
+
+.mobile-slide .main-navigation.mobile-active.toggled {
+    transform: translateX(0);
+}
+
+.mobile-slide .main-navigation.mobile-active.toggled .mobile-menu-close {
+    display: block;
 }
 
 /* Fullscreen – Fullscreen overlay */
@@ -334,11 +401,6 @@
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
-.mobile-fullscreen .main-navigation.mobile-active.toggled {
-    opacity: 1;
-    visibility: visible;
-}
-
 .mobile-fullscreen .main-navigation.mobile-active ul {
     display: flex;
     flex-direction: column;
@@ -351,35 +413,13 @@
     padding: 0.75rem 1.5rem;
 }
 
-/* Dropdown – Simple toggle (default mobile) */
-.mobile-dropdown .main-navigation.mobile-active ul {
-    display: none;
-    flex-direction: column;
-    gap: 0;
-    background: rgba(26, 26, 26, 0.95);
-    border-radius: 8px;
-    padding: 0.5rem 0;
-    margin-top: 0.5rem;
+.mobile-fullscreen .main-navigation.mobile-active.toggled {
+    opacity: 1;
+    visibility: visible;
 }
 
-.mobile-dropdown .main-navigation.mobile-active.toggled ul {
-    display: flex;
-}
-
-/* Mobile menu close button (for slide and fullscreen) */
-.mobile-menu-close {
-    display: none;
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    line-height: 1;
-    z-index: 1002;
+.mobile-fullscreen .main-navigation.mobile-active.toggled .mobile-menu-close {
+    display: block;
 }
 
 /* ==========================================================================
@@ -478,13 +518,7 @@ body {
 
 /* Mobile state: applied via JS based on --nav-breakpoint */
 .site-header.nav-mobile .menu-toggle {
-    display: block;
-    background: var(--color-primary);
-    color: white;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    cursor: pointer;
-    border-radius: 4px;
+    display: flex;
 }
 
 .site-header.nav-mobile .main-navigation .sub-menu {
@@ -500,10 +534,6 @@ body {
 .site-header.nav-mobile .main-navigation li:hover > .sub-menu,
 .site-header.nav-mobile .main-navigation li.focus > .sub-menu {
     display: flex;
-}
-
-.site-header.nav-mobile .mobile-menu-close {
-    display: block;
 }
 
 /* Desktop state */
