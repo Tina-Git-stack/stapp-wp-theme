@@ -69,16 +69,24 @@
         flex-direction: column;
     }
 
-    .wp-block-group.is-layout-flex,
-    .wp-block-columns.is-layout-flex {
+    /* Force all flex layout blocks to wrap on mobile */
+    .is-layout-flex {
         flex-wrap: wrap !important;
+        flex-direction: column !important;
     }
 
-    .wp-block-group.is-layout-flex > *,
-    .wp-block-columns.is-layout-flex > * {
-        flex-basis: 100% !important;
+    /* Reset all editor-set widths on flex children */
+    .is-layout-flex > * {
+        flex-basis: auto !important;
+        flex-grow: 1 !important;
         max-width: 100% !important;
         width: 100% !important;
         min-width: 0 !important;
+    }
+
+    /* Prevent horizontal overflow */
+    .entry-content,
+    .site-main {
+        overflow-x: hidden;
     }
 }
