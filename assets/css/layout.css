@@ -348,15 +348,23 @@
     display: none;
     flex-direction: column;
     gap: 0;
-    background: rgba(26, 26, 26, 0.95);
+    background: rgba(20, 20, 20, 0.98);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border-radius: 0 0 8px 8px;
-    padding: 0.5rem var(--spacing-unit);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    padding: 0.5rem 0;
+    margin: 0;
 }
 
 .mobile-dropdown.nav-mobile .main-navigation.mobile-active.toggled ul {
     display: flex;
+}
+
+.mobile-dropdown.nav-mobile .main-navigation.mobile-active a {
+    padding: 0.75rem var(--spacing-unit, 1rem);
+    font-size: var(--nav-font-size, 16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* Slide – Slides in from the side */
@@ -385,6 +393,12 @@
 
 .mobile-slide .main-navigation.mobile-active.toggled {
     transform: translateX(0);
+}
+
+.mobile-slide .main-navigation.mobile-active a {
+    padding: 0.75rem 0;
+    font-size: var(--nav-font-size, 16px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .mobile-slide .main-navigation.mobile-active.toggled .mobile-menu-close {
@@ -526,6 +540,10 @@ body {
    ========================================================================== */
 
 /* Mobile state: applied via JS based on --nav-breakpoint */
+.site-header.nav-mobile {
+    padding: 0.75rem 0;
+}
+
 .site-header.nav-mobile .container {
     display: flex;
     justify-content: space-between;
@@ -557,6 +575,11 @@ body {
 .site-header.nav-mobile .main-navigation li:hover > .sub-menu,
 .site-header.nav-mobile .main-navigation li.focus > .sub-menu {
     display: flex;
+}
+
+/* Close button: explicitly hidden in dropdown mode */
+.mobile-dropdown .mobile-menu-close {
+    display: none !important;
 }
 
 /* Desktop state */

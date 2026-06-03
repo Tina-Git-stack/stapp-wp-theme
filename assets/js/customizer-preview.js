@@ -44,6 +44,18 @@
         });
     });
 
+    wp.customize('stapp_wp_logo_mobile_width', function(value) {
+        value.bind(function(newval) {
+            // Update or create the mobile logo style rule
+            var styleId = 'stapp-mobile-logo-preview';
+            var $style = $('#' + styleId);
+            if (!$style.length) {
+                $style = $('<style id="' + styleId + '"></style>').appendTo('head');
+            }
+            $style.html('.nav-mobile .custom-logo-link img { width: ' + newval + 'px !important; height: auto !important; }');
+        });
+    });
+
     // =========================================================================
     // Header
     // =========================================================================

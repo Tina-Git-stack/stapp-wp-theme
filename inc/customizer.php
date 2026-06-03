@@ -123,6 +123,25 @@ function stapp_wp_theme_customize_register($wp_customize) {
         ),
     ));
 
+    // Mobile Logo Width
+    $wp_customize->add_setting('stapp_wp_logo_mobile_width', array(
+        'default'           => 100,
+        'sanitize_callback' => 'absint',
+        'transport'         => 'postMessage',
+    ));
+
+    $wp_customize->add_control('stapp_wp_logo_mobile_width', array(
+        'label'       => __('Logo Breite (Mobil)', 'stapp-wp-theme'),
+        'description' => __('Logo-Breite auf Mobilgeräten in Pixel', 'stapp-wp-theme'),
+        'section'     => 'stapp_wp_logo_settings',
+        'type'        => 'range',
+        'input_attrs' => array(
+            'min'  => 30,
+            'max'  => 250,
+            'step' => 5,
+        ),
+    ));
+
     // =========================================================================
     // Header Section
     // =========================================================================
@@ -525,8 +544,9 @@ function stapp_wp_hex_to_rgba($hex, $opacity) {
  */
 function stapp_wp_theme_customizer_css() {
     // Logo
-    $logo_width  = get_theme_mod('stapp_wp_logo_width', 150);
-    $logo_height = get_theme_mod('stapp_wp_logo_height', 0);
+    $logo_width        = get_theme_mod('stapp_wp_logo_width', 150);
+    $logo_height       = get_theme_mod('stapp_wp_logo_height', 0);
+    $logo_mobile_width = get_theme_mod('stapp_wp_logo_mobile_width', 100);
 
     // Header
     $header_bg_color   = get_theme_mod('stapp_wp_header_bg_color', '#1a1a1a');
@@ -581,6 +601,11 @@ function stapp_wp_theme_customizer_css() {
             <?php else : ?>
             height: auto;
             <?php endif; ?>
+        }
+
+        .nav-mobile .custom-logo-link img {
+            width: <?php echo esc_attr($logo_mobile_width); ?>px;
+            height: auto;
         }
 
         .bg-quality-line svg path,
