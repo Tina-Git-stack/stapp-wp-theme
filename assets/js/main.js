@@ -87,8 +87,9 @@
         });
 
         // Auto-close menu when a nav link is clicked
-        $('#site-navigation').on('click', 'a', function() {
-            closeMobileMenu();
+        $(document).on('click', '#site-navigation a', function() {
+            // Small delay so the user sees the tap feedback
+            setTimeout(closeMobileMenu, 150);
         });
     }
 
