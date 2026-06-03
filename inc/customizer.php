@@ -602,7 +602,7 @@ function stapp_wp_theme_customize_preview_js() {
         'stapp-wp-customizer-preview',
         get_template_directory_uri() . '/assets/js/customizer-preview.js',
         array('jquery', 'customize-preview'),
-        '1.0.0',
+        filemtime(get_template_directory() . '/assets/js/customizer-preview.js'),
         true
     );
 }
