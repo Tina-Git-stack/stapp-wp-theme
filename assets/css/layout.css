@@ -99,6 +99,7 @@
     text-decoration: none;
     padding: 0.5rem 1rem;
     display: block;
+    cursor: pointer;
     font-size: var(--nav-font-size, 16px);
     font-weight: var(--nav-font-weight, 400);
     letter-spacing: var(--nav-letter-spacing, 0px);

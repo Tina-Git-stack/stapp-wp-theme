@@ -87,19 +87,11 @@
         });
 
         // Auto-close menu when a nav link is clicked/tapped
-        $('#site-navigation').on('click touchend', 'a', function(e) {
-            // Only handle touchend if it's a real tap (not scroll)
-            if (e.type === 'touchend') {
-                e.preventDefault();
-                // Trigger the navigation manually
-                var href = $(this).attr('href');
-                if (href) {
-                    setTimeout(function() {
-                        window.location.href = href;
-                    }, 200);
-                }
-            }
-            closeMobileMenu();
+        // Direct binding (not delegation) — required for iOS Safari
+        $('#site-navigation a').each(function() {
+            this.addEventListener('click', function() {
+                closeMobileMenu();
+            }, false);
         });
     }
 
